@@ -1,0 +1,10 @@
+{
+  "label": "Guides",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "title": "Blinks Client Guides",
+    "description": "Learn how to use the Blinks Client to build your frontend.",
+    "slug": "/blinks-client/guides"
+  }
+}
