@@ -4,25 +4,25 @@ sidebar_position: 1
 
 # Introduction
 
-## Actions
+## Blinks
 
-Actions and Blinks are an ambitious new protocol allowing you to teleport actionable experiences from your product to anywhere else on the internet. The project is being worked on in collaboration with Solana, with the developer stack being built by Dialect.
+Blockchain Links (Blinks) are a new, lightweight protocol that revolutionizes how product experiences are delivered in a web3 native way. Once developed, these experiences can be distributed anywhere a link can exist.
 
-Actions are a protocol for creating and delivering Solana transactions through URLs, making Solana sharable everywhere. Blinks, or Blockchain Links, are clients that detect Action URLs and unfurl them into full experiences.
+By building with blinks, you ensure that other developers can integrate your service in seconds while you still own the blink.
 
-You can think of Blinks as being like link previews with interactive capabilities.
+That way, blinks don't just remove the need of SDKs in most cases, but also ensure that the implementation of your service follows your design principles and best practices, reducing the risk of incorrect implementations or poor user experiences.
+
+Since you maintain full control of the blink from a single location, any updates you make are automatically reflected wherever your blink is served, eliminating the need for third parties to update their SDKs. It essentially functions as a managed endpoint.
 
 <figure><img src="/img/hero-banner (1).png" alt="" /><figcaption></figcaption></figure>
 
-We've teamed up with Solana's leading wallets to bring Actions and Blinks right to Twitter, with native support in Phantom, Backpack, and soon in Solflare. You can try them out today by enabling Blinks from your favorite wallet: ⚙️ → Enable Actions/Blinks.
+On top of that, blinks have the ability to unfurl, which means that they have a very easy to understand UI, encouraging users to engage with your experience via a simple click on a button.
 
-Or try Dialect's [dedicated Blinks Chrome extension](https://chromewebstore.google.com/detail/dialect-blinks/mhklkgpihchphohoiopkidjnbhdoilof).
+And because blinks are chain agnostic, you can build and distribute these experiences across all chains, making it truyly revolutionary.
 
-Solana's top teams are building with Actions today.
+Top teams throughout the blockchain ecosystem, including Solana and Monad, have already recognized the potential of this technology and have begun developing blinks to streamline access to their services.
 
-<figure><img src="/img/partners-banner (1).png" alt="" /><figcaption></figcaption></figure>
-
-These docs describe the Actions specification, how Blinks work to unfurl Actions APIs, and provide practical resources on how to get started developing today.
+In this documentation we explain you how you can integrate blinks into your existing services via our [clients](/docs/blinks-client/README.md) as well as how you can create your own [blink providers](/docs//blinks-provider/README.md) to make your experiences available to a broader audience.
 
 ## Alerts
 
