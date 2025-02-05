@@ -111,6 +111,11 @@ const config: Config = {
           position: "left",
         },
         {
+          to: "/blinks-client/integrate/headless/api-docu",
+          label: "API",
+          position: "left",
+        },
+        {
           href: "https://github.com/dialectlabs",
           label: "GitHub",
           position: "right",
@@ -124,8 +129,12 @@ const config: Config = {
           title: "Docs",
           items: [
             {
-              label: "Tutorial",
-              to: "/docs/intro",
+              label: "Guides",
+              to: "/guides",
+            },
+            {
+              label: "API",
+              to: "/blinks-client/integrate/headless/api-docu",
             },
           ],
         },
@@ -145,10 +154,10 @@ const config: Config = {
         {
           title: "More",
           items: [
-            {
-              label: "Blog",
-              to: "/blog",
-            },
+            // {
+            //   label: "Blog",
+            //   to: "/blog",
+            // },
             {
               label: "GitHub",
               href: "https://github.com/dialectlabs",

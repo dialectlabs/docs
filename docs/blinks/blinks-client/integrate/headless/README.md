@@ -3,7 +3,7 @@ sidebar_position: 1
 description: How to interact with blinks via pure REST HTTP.
 ---
 
-# Headless
+# Headless Integration
 
 In the previous section we describe the full [blinks data schema](https://app.gitbook.com/o/ZsR7wiSZztyZLlZNx8zt/s/2gwc3CtkjJrTQlf1yiny/~/changes/193/actions/blinks/blink-data-schema). In this section, we describe how you can interact with blinks via pure HTTP requests.
 
