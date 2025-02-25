@@ -3,31 +3,18 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
 const config: Config = {
   title: "Dialect Developer Documentation",
   tagline:
     "Documentation and guides for building and integrating Dialect products.",
   favicon: "img/favicon.ico",
-
-  // Set the production url of your site here
   url: "https://docs.dialect.to",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "dialectlabs", // Usually your GitHub org/user name.
-  projectName: "docs", // Usually your repo name.
+  organizationName: "dialectlabs",
+  projectName: "docs",
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
@@ -37,31 +24,8 @@ const config: Config = {
     [
       "classic",
       {
-        docs: {
-          routeBasePath: "/",
-          sidebarPath: "./sidebars.ts",
-          docItemComponent: "@theme/ApiItem",
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl:
-          //   "https://github.com/dialectlabs/docs/tree/main/packages/create-docusaurus/templates/shared/",
-        },
+        docs: false,
         blog: false,
-        // {
-        //   showReadingTime: true,
-        //   feedOptions: {
-        //     type: ["rss", "atom"],
-        //     xslt: true,
-        //   },
-        //   // Please change this to your repo.
-        //   // Remove this to remove the "edit this page" links.
-        //   editUrl:
-        //     "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-        //   // Useful options to enforce blogging best practices
-        //   onInlineTags: "warn",
-        //   onInlineAuthors: "warn",
-        //   onUntruncatedBlogPosts: "warn",
-        // },
         theme: {
           customCss: "./src/css/custom.css",
         },
@@ -70,6 +34,25 @@ const config: Config = {
   ],
 
   plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "blinks",
+        path: "docs/blinks",
+        routeBasePath: "/",
+        sidebarPath: "./sidebarsBlinks.ts",
+        docItemComponent: "@theme/ApiItem",
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "alerts",
+        path: "docs/alerts",
+        routeBasePath: "alerts",
+        sidebarPath: "./sidebarsAlerts.ts",
+      },
+    ],
     [
       "docusaurus-plugin-openapi-docs",
       {
@@ -100,18 +83,19 @@ const config: Config = {
       },
       items: [
         {
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
-          position: "left",
-          label: "Docs",
+          type: "doc",
+          docId: "index",
+          docsPluginId: "blinks",
+          label: "Blinks",
         },
         {
-          to: "/guides",
-          label: "Guides",
-          position: "left",
+          type: "doc",
+          docId: "index",
+          docsPluginId: "alerts",
+          label: "Alerts",
         },
         {
-          to: "/blinks-client/integrate/headless/api-docu",
+          to: "https://api.dial.to/docs",
           label: "API",
           position: "left",
         },
@@ -129,21 +113,60 @@ const config: Config = {
           title: "Docs",
           items: [
             {
+              label: "Blinks",
+              to: "/blinks",
+            },
+            {
+              label: "Alerts",
+              to: "/alerts",
+            },
+            {
               label: "Guides",
               to: "/guides",
             },
             {
               label: "API",
-              to: "/blinks-client/integrate/headless/api-docu",
+              to: "https://api.dial.to/docs",
+            },
+          ],
+        },
+
+        {
+          title: "Blinks SDK",
+          items: [
+            {
+              label: "React",
+              href: "https://www.npmjs.com/package/@dialectlabs/blinks",
+            },
+            {
+              label: "React-Native",
+              href: "https://www.npmjs.com/package/@dialectlabs/blinks-react-native",
             },
           ],
         },
         {
-          title: "Community",
+          title: "Alerts SDK",
+          items: [
+            {
+              label: "React",
+              href: "https://github.com/dialectlabs/sdk",
+            },
+          ],
+        },
+        {
+          title: "More",
           items: [
             {
               label: "Discord",
               href: "https://discord.com/invite/saydialect",
+            },
+            {
+              label: "GitHub",
+              href: "https://github.com/dialectlabs",
+            },
+            {
+              label: "Blog",
+              to: "https://medium.com/@dialectlabs",
             },
             {
               label: "X",
@@ -151,21 +174,8 @@ const config: Config = {
             },
           ],
         },
-        {
-          title: "More",
-          items: [
-            // {
-            //   label: "Blog",
-            //   to: "/blog",
-            // },
-            {
-              label: "GitHub",
-              href: "https://github.com/dialectlabs",
-            },
-          ],
-        },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Dialect Labs, Inc.`,
+      copyright: `©${new Date().getFullYear()} Dialect Labs - All rights reserved`,
     },
     prism: {
       theme: prismThemes.github,

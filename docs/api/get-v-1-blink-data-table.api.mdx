@@ -1,0 +1,71 @@
+---
+id: get-v-1-blink-data-table
+title: "getV1Blink-data-table"
+description: "Fetch Blink Data Table"
+sidebar_label: "getV1Blink-data-table"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVk1P20AQ/SurObWSiROkiso3CqVCcEBA2wPKYbOexAtrr9kdB9LI/72atY2TOIH2lGTn7Xy8eTObNTj0pS08ekjWcDwe80eKXjldkrYFJHBXKYXezysjOjBEoGxBWBDDZVkarSTD40fPd9bgVYa55G+0KhESsLNHVAQRlM6W6Eg3EZ198Rso6ZxcQQSaMPcf337C1QbIk9PFAuoISJPBvZalNNV+i1ZN5gND5cye8zoCh8+VdphC8hAy6eJ2UaYMCjy90se17A8TwQvOvCb8ecCsJOHCuv08lM4udYru4+iFzP+Llp3yw/VptKOcb0YXT+KmS+KtL43h7XzXGTNxwNdZy+aOq+64joB//oNyZow7wBkuNb58XHPjor8w3QUEbfcK6HI7UNq5JCnu5SwIaKs6tjSGuuYYX8bHwym9kNpgKsiKOZLKRMru5s7mYqcL7IGZCPN6mUICC6Rfk4A64ltH1CUhF57rGOQ3qOAihNxTRymdzJHQsaM1aAY/V+h4WBrJgSw1azsaroyW9wjm1uWSIIHKadjP3unNpfh5ex2sc1kZRmdEpU/i+FGTHaVamhHZ2JN84szwVeZl4Pgd2FZDyVVYRweKUMpWBb1bxXbav6UxSEKmqUPvhZ0LylBUnju0GXUujcd6GkGOlNm2XYFZyiCBeDmJZ8PWeXTLjvSwWN6qlKXuihzkdK6lQUWslbRS4ZAL7h0kcWyskiaznpKvJyfjgYtrNou7EB44bY+qcppWIRVlNBZ0xVv7YbppvWPWmsncwPTPQqmvwoLdDnYWoOIJV6x7WVFmnf6DgtlDT37UN+j1qGGp8X7UrOvQyQxlNxa6mNsQtZ2+jo/Tm8uDXAX5+RbCnDfm8WgyGod1Yj3lsuh3LPdP7J23rQDr/oU9PF4tPbxe4tJIXWy8V41AHmA5gQgGEplGwE1kwHo9k57fl7rm40bZ3K1Ue8Z2InwnwU+3rV4/i0NZhae6H/b2HYYgsEGgFvw2VD16yj+cDjWwhqKuf5xwc+1UKSw3bw3+n2yN04/v91DXfwEjGBS0
+sidebar_class_name: "get api-method"
+info_path: blinks/blinks-client/integrate/headless/api-docu/dialect-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"getV1Blink-data-table"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/blink-data-table"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Fetch Blink Data Table
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"apiUrl","schema":{"type":"string","format":"uri","description":"Blink API URL","default":"https://jito.dial.to/stake","example":"https://jito.dial.to/stake"},"required":true},{"in":"query","name":"account","schema":{"type":"string","description":"Wallet address of the user"},"required":false}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful response","content":{"application/json":{"schema":{"type":"object","properties":{"rows":{"type":"array","items":{"type":"object","properties":{"key":{"type":"string"},"title":{"type":"string"},"value":{"type":"string"},"icon":{"type":"string"},"url":{"type":"string"}},"required":["key","title","value"]}},"context":{"type":"object","properties":{"url":{"type":"string"},"websiteUrl":{"type":"string"},"category":{"type":"string"},"provider":{"type":"object","properties":{"name":{"type":"string"},"icon":{"type":"string"}},"required":["name"],"description":"Blink Provider","title":"BlinkProvider"}},"required":["url"],"description":"Blink Context","title":"BlinkContext"},"links":{"type":"object","properties":{"blink":{"type":"string"},"preview":{"type":"string"}},"required":["blink","preview"]}},"required":["rows","context","links"],"description":"Blink Data Table","title":"BlinkDataTable"}}}},"502":{"description":"Failed to fetch data from Blink Provider"}}}
+>
+  
+</StatusCodes>
+
+
+      

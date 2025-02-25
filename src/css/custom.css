@@ -25,5 +25,68 @@
   --ifm-color-primary-light: #29d5b0;
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --docusaurus-highlighted-code-lamine-bg: rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  padding: 6px 0px 0px 12px;
+  color: #000000;
+  margin-top: 16px;
+}
+
+[data-theme="dark"] .sidebar-title {
+  color: var(--ifm-color-gray-300);
+}
+
+.sidebar-social {
+  padding: 0px 12px; /* Reduced top/bottom padding */
+}
+
+.sidebar-social-link {
+  display: flex;
+  align-items: center;
+  padding: 8px 0px; /* Added padding to match sidebar items */
+  color: var(--ifm-menu-color); /* Use Docusaurus menu color variable */
+  text-decoration: none;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+  margin: 2px 0; /* Add small margin between links */
+  line-height: 1.25rem; /* Match Docusaurus line height */
+}
+
+[data-theme="dark"] .sidebar-social-link {
+  color: var(--ifm-menu-color);
+}
+
+.sidebar-social-link:hover {
+  background-color: var(--ifm-menu-color-background-active);
+  color: var(--ifm-menu-color-active);
+  text-decoration: none;
+}
+
+[data-theme="dark"] .sidebar-social-link:hover {
+  background-color: var(--ifm-menu-color-background-active);
+}
+
+.sidebar-social-link svg {
+  margin-right: 12px; /* Increased spacing between icon and text */
+  width: 20px; /* Slightly larger icons */
+  height: 20px;
+}
+
+.sidebar-separator-wrapper {
+  padding: 0 12px;
+}
+
+.sidebar-separator {
+  height: 1px;
+  background-color: var(--ifm-color-gray-200);
+  margin: 8px 0;
+}
+
+[data-theme="dark"] .sidebar-separator {
+  background-color: var(--ifm-color-gray-800);
 }

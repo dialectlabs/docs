@@ -1,41 +1,68 @@
-# Website
+# Dialect Developer Documentation
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This repository contains the developer documentation for Dialect's Blinks and Alert Stack.
 
-### Installation
+## Overview
 
-```
-$ yarn
-```
+The Dialect Developer Documentation provides guides, tutorials, and API references for developers looking to build and integrate Dialect products into their applications. It covers various topics, including:
 
-### Local Development
+- Blinks: Distributable experiences that can be embedded anywhere a link can exist
+- Alerts: Real-time notifications and updates for your users
+- API Documentation: Detailed references for Dialect's HTTP endpoints
 
-```
-$ yarn start
-```
+## Getting Started
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+To access the Dialect Developer Documentation, simply visit [docs.dialect.to](https://docs.dialect.to). This is the recommended way to view and use the documentation.
 
-### Build
+If you want to contribute to the documentation, you can follow these steps to set up a local development environment:
 
-```
-$ yarn build
-```
+1. Clone the repository:
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+   ```bash
+   git clone https://github.com/dialectlabs/docs.git
+   ```
 
-### Deployment
+2. Install the dependencies:
 
-Using SSH:
+   ```bash
+   cd docs
+   yarn install
+   ```
 
-```
-$ USE_SSH=true yarn deploy
-```
+3. Start the development server:
 
-Not using SSH:
+   ```bash
+   yarn start
+   ```
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
+   This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+For more information on contributing to the Dialect Developer Documentation, please refer to our [Contribution Guidelines](CONTRIBUTING.md).
+
+## Documentation Structure
+
+The documentation is organized into the following main sections:
+
+- **Blinks**: Guides and tutorials for integrating Blinks into your applications using the Blinks Client SDK or headless integration options.
+- **Alerts**: Documentation for setting up and managing real-time notifications using Dialect Alerts.
+- **API**: API references for Dialect's HTTP endpoints, allowing developers to interact with Dialect products programmatically.
+
+## Contributing
+
+We welcome contributions to improve the Dialect Developer Documentation. If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+
+Before contributing, please review our [Contribution Guidelines](CONTRIBUTING.md) for more information on how to contribute to this project.
+
+## License
+
+The Dialect Developer Documentation is open-source and released under the [MIT License](LICENSE).
+
+## Contact
+
+If you have any questions or need assistance, please reach out to us:
+
+- Discord: [Dialect Discord Server](https://discord.gg/saydialect)
+- Twitter: [@saydialect](https://twitter.com/saydialect)
+- Email: hello@dialect.to
+
+We look forward to seeing what you build with Dialect!
