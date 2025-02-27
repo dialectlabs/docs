@@ -121,10 +121,6 @@ const config: Config = {
               to: "/alerts",
             },
             {
-              label: "Guides",
-              to: "/guides",
-            },
-            {
               label: "API",
               to: "https://api.dial.to/docs",
             },

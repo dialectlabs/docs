@@ -1,0 +1,600 @@
+# Build your first Blink
+
+:::tip
+This is the first of may tutorials that we offer. If you are looking for more advanced tutorials, checkout our [guides section](guides/index.md)
+:::
+
+The best way to understand how blinks work, is to build one. This guide will show you, how you can create a blink that donates SOL to another wallet.
+
+For convenience, we will use `NextJS` because it combines very nicely the frontend and backend part into one simple project.
+
+It is important to note here, that blinks are chain agnostic, which means that this blink can be re-created for EVM environments with little alignments in the code.
+
+:::note
+
+- Level: Beginner
+- Requirements: Basic understanding of TypeScript and NextJS
+  :::
+
+## How blinks work
+
+Blinks consist of two parts. A backend part, called the `BlinkProvider` and a frontend part that is referred to as the `BlinkClient`. The client is responsible for state handling and rendering the blink on the frontend, while the provider serves the blink via REST API with simple `GET` and `POST` requests.
+
+This guide will focus on the `BlinkProvider`. If you want to learn about integrating our blink SDK for your front end, please visit our [blink client section](../../actions/blinks/).
+
+## Prerequisite
+
+- Code Editor of your choice (recommended [Cursor](https://www.cursor.com/) or [Visual Studio Code](https://code.visualstudio.com/)).
+- [Node](https://nodejs.org/en/download) 18.x.x or above.
+- Basic TypeScript knowledge.
+- Devnet SOL (request airdrop from [Solana Faucet](https://faucet.solana.com/) if you haven't any).
+
+## Initial Setup
+
+### Initialize the project
+
+```bash
+npx create-next-app@latest blink-starter && cd blink-starter
+```
+
+**When prompted, configure your project with these settings:**
+
+✓ Ok to proceed? → Yes \
+✓ Would you like to use TypeScript? → Yes \
+✓ Would you like to use ESLint? → Yes \
+✓ Would you like to use Tailwind CSS? → Yes \
+✓ Would you like your code inside a `src/` directory? → Yes \
+✓ Would you like to use App Router? → Yes \
+✓ Would you like to use Turbopack for `next dev`? → No \
+✓ Would you like to customize the import alias (`@/*` by default)? → No
+
+### Install extra packages
+
+Install the packages that you need for this guide.
+
+```bash
+npm install @solana/web3.js @solana/actions
+```
+
+### Start development server
+
+The development server is used to start a local test environment that runs on your computer. It is perfect to test and develop your blink, before you ship it to production.
+
+```bash
+npm run dev
+```
+
+## Coding time
+
+Now that we have our basic setup finished, it's time to open the editor and start coding.
+
+### Create an endpoint
+
+To write a blink provider, you have to create an endpoint. Thanks to NextJS, this all works pretty straightforward. All you have to do is to create the following folder structure:
+
+```jsx
+src/
+└── app/
+    └── api/
+        └── actions/
+            └── donate-sol/
+                └── route.ts
+```
+
+### Create actions.json
+
+Finally, you have to create the `actions.json` file which will be hosted in the root directory of your application. This file is needed to tell other applications which blink providers are available on your website. **Think of it as a sitemap for blinks.**
+
+You can read more about the [actions.json](https://docs.dialect.to/documentation/actions/specification/actions.json) in the official [dialect documentation](https://docs.dialect.to/documentation/actions/specification/actions.json).
+
+#### File structure
+
+```bash
+src/
+└── app/
+    └── actions.json/
+        └── route.ts
+```
+
+#### Content in file
+
+```tsx
+// file: src/app/actions.json/route.ts
+
+import { ACTIONS_CORS_HEADERS, ActionsJson } from "@solana/actions";
+
+export const GET = async () => {
+  const payload: ActionsJson = {
+    rules: [
+      // map all root level routes to an action
+      {
+        pathPattern: "/*",
+        apiPath: "/api/actions/*",
+      },
+      // idempotent rule as the fallback
+      {
+        pathPattern: "/api/actions/**",
+        apiPath: "/api/actions/**",
+      },
+    ],
+  };
+
+  return Response.json(payload, {
+    headers: ACTIONS_CORS_HEADERS,
+  });
+};
+
+// DO NOT FORGET TO INCLUDE THE `OPTIONS` HTTP METHOD
+// THIS WILL ENSURE CORS WORKS FOR BLINKS
+export const OPTIONS = GET;
+```
+
+### Add an image for the blink
+
+Every blink has an image that is rendered on top. If you already have your image hosted somewhere, you can skip this step but if you don't, you can create a `public` folder in your `NextJS` project and copy/paste an image there.
+
+In our example, we will paste a file called `donate-sol.png` into this public folder.
+
+<img
+  src="/img/Screenshot 2025-02-09 at 07.32.32.png"
+  alt="Filestructure of project"
+  width="291"
+/>
+
+### OPTIONS endpoint and headers
+
+Enable CORS for cross-origin requests and standard headers for the API endpoints. This is the standard configuration for blinks.
+
+```typescript
+//file: src/app/api/actions/transfer-sol/route.ts
+
+import { BLOCKCHAIN_IDS } from "@solana/actions";
+
+// Set standardized headers for Blink Providers
+const headers = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers":
+    "Content-Type, x-blockchain-ids, x-action-version",
+  "Content-Type": "application/json",
+  "x-blockchain-ids": blockchain,
+  "x-action-version": "2.4",
+};
+
+// OPTIONS endpoint is required for CORS preflight requests
+// Your Blink won't render if you don't add this
+export const OPTIONS = async () => {
+  return new Response(null, { headers });
+};
+```
+
+### GET endpoint
+
+`GET` returns the blink metadata and UI configuration.
+
+It describes:
+
+- How the Action appears in Blink clients
+- What parameters users need to provide
+- How the Action should be executed
+
+```jsx
+//file: src/app/api/actions/transfer-sol/route.ts
+
+import { ActionGetResponse, BLOCKCHAIN_IDS } from "@solana/actions";
+
+// GET endpoint returns the Blink metadata (JSON) and UI configuration
+export const GET = async (req: Request) => {
+  // This JSON is used to render the Blink UI
+  const response: ActionGetResponse = {
+    type: "action",
+    icon: `${new URL("/donate-sol.jpg", req.url).toString()}`,
+    label: "1 SOL",
+    title: "Donate SOL",
+    description:
+      "This Blink demonstrates how to donate SOL on the Solana blockchain. It is a part of the official Blink Starter Guides by Dialect Labs.",
+    // Links is used if you have multiple actions or if you need more than one params
+    links: {
+      actions: [
+        {
+          // Defines this as a blockchain transaction
+          type: "transaction",
+          label: "0.01 SOL",
+          // This is the endpoint for the POST request
+          href: `/api/actions/donate-sol?amount=0.01`,
+        },
+        {
+          type: "transaction",
+          label: "0.05 SOL",
+          href: `/api/actions/donate-sol?amount=0.05`,
+        },
+        {
+          type: "transaction",
+          label: "0.1 SOL",
+          href: `/api/actions/donate-sol?amount=0.1`,
+        },
+        {
+          // Example for a custom input field
+          type: "transaction",
+          href: `/api/actions/donate-sol?amount={amount}`,
+          label: "Donate",
+          parameters: [
+            {
+              name: "amount",
+              label: "Enter a custom SOL amount",
+              type: "number",
+            },
+          ],
+        },
+      ],
+    },
+  };
+
+  // Return the response with proper headers
+  return new Response(JSON.stringify(response), {
+    status: 200,
+    headers,
+  });
+};
+```
+
+### Test your Blink
+
+Visit [dial.to](http://dial.to) and type in the link to your blink to see if it works. If your server runs on `localhost:3000` the url should look like this: **`http://localhost:3000/api/actions/donate-sol`**
+
+<img src="/img/donate-sol-dialto-ex.png" alt="Blink rendered on dial.to" />
+
+### POST endpoint
+
+`POST` creates the transaction in the backend and sends it to the provider. A `POST` request gets sent, once a user clicks on a button.
+
+#### Set donationWallet and add missing imports
+
+Add the imports that are necessary in order to transfer SOL. This part is also used to make small configurations, such as setting the donationWallet address and the `connection`.
+
+The `connection` is later used to send your transaction into the solana network. Because this is an example transfer in the solana devnet, we use their standard endpoint. If you plan to use this blink later in a production environment, you should replace the link with your `RPC` link.&#x20;
+
+```typescript
+//file: src/app/api/actions/transfer-sol/route.ts
+
+// imports related to the blink
+import {
+  ActionGetResponse,
+  ActionPostRequest,
+  ActionPostResponse,
+  BLOCKCHAIN_IDS,
+} from "@solana/actions";
+
+// imports for the transaction
+import {
+  Connection,
+  PublicKey,
+  LAMPORTS_PER_SOL,
+  SystemProgram,
+  TransactionMessage,
+  VersionedTransaction,
+} from "@solana/web3.js";
+
+// Create a connection to the Solana blockchain
+const connection = new Connection("https://api.devnet.solana.com");
+
+// Set the donation wallet address
+const donationWallet = "YOUR_SOLANA_WALLET_ADDRESS";
+
+// Code from GET, ...
+```
+
+#### Create POST request endpoint
+
+This code will be added below our `GET` request in the same file.
+
+```typescript
+//file: src/app/api/actions/transfer-sol/route.ts
+
+// POST endpoint handles the actual transaction creation
+export const POST = async (req: Request) => {
+  try {
+    // Following code will start here with step 1
+  } catch (error) {
+    // Log and return an error response
+    console.error("Error processing request:", error);
+    return new Response(JSON.stringify({ error: "Internal server error" }), {
+      status: 500,
+      headers,
+    });
+  }
+};
+```
+
+#### Extract data from request
+
+The request contains the URL and the account (PublicKey) from the payer.
+
+```tsx
+//file: src/app/api/actions/transfer-sol/route.ts
+
+// POST endpoint handles the actual transaction creation
+export const POST = async (req: Request) => {
+  try {
+    // Step 1: Extract parameters, prepare data
+    const url = new URL(req.url);
+
+    // Amount of SOL to transfer is passed in the URL
+    const amount = Number(url.searchParams.get("amount"));
+
+    // Payer public key is passed in the request body
+    const request: ActionPostRequest = await req.json();
+    const payer = new PublicKey(request.account);
+
+    // Receiver of the donation wallet address
+    const receiver = new PublicKey(donationWallet);
+  } catch (error) {
+    // Error handling
+  }
+};
+```
+
+#### Prepare the transaction
+
+Create a new function that prepares the transaction and add it below the `POST` request.
+
+```tsx
+//file: src/app/api/actions/transfer-sol/route.ts
+const prepareTransaction = async (
+  connection: Connection,
+  payer: PublicKey,
+  receiver: PublicKey,
+  amount: number
+) => {
+  // Create a transfer instruction
+  const instruction = SystemProgram.transfer({
+    fromPubkey: payer,
+    toPubkey: new PublicKey(receiver),
+    lamports: amount * LAMPORTS_PER_SOL,
+  });
+
+  // Get the latest blockhash
+  const { blockhash } = await connection.getLatestBlockhash();
+
+  // Create a transaction message
+  const message = new TransactionMessage({
+    payerKey: payer,
+    recentBlockhash: blockhash,
+    instructions: [instruction],
+  }).compileToV0Message();
+
+  // Create and return a versioned transaction
+  return new VersionedTransaction(message);
+};
+```
+
+Call `prepareTransaction` in the `POST` request.
+
+```tsx
+//file: src/app/api/actions/transfer-sol/route.ts
+
+// POST endpoint handles the actual transaction creation
+export const POST = async (req: Request) => {
+  try {
+    // ... previous code from step 1
+
+    const transaction = await prepareTransaction(
+      connection,
+      payer,
+      donationWallet,
+      amount
+    );
+  } catch (error) {
+    // Error handling
+  }
+};
+```
+
+#### Finalize
+
+Create `ActionPostResponse` and return it to the client.
+
+```tsx
+// POST endpoint handles the actual transaction creation
+export const POST = async (req: Request) => {
+  try {
+    // ... previous code from step 1 and 2
+
+    // Create a response with the serialized transaction
+    const response: ActionPostResponse = {
+      type: "transaction",
+      transaction: Buffer.from(transaction.serialize()).toString("base64"),
+    };
+
+    // Return the response with proper headers
+    return Response.json(response, { status: 200, headers });
+  } catch (error) {
+    // Error handling
+  }
+};
+```
+
+### Full code
+
+```typescript
+//file: src/app/api/actions/donate-sol/route.ts
+
+import {
+  ActionGetResponse,
+  ActionPostRequest,
+  ActionPostResponse,
+  BLOCKCHAIN_IDS,
+} from "@solana/actions";
+
+import {
+  Connection,
+  PublicKey,
+  LAMPORTS_PER_SOL,
+  SystemProgram,
+  TransactionMessage,
+  VersionedTransaction,
+} from "@solana/web3.js";
+
+// CAIP-2 format for Solana
+const blockchain = BLOCKCHAIN_IDS.devnet;
+
+// Create a connection to the Solana blockchain
+const connection = new Connection("https://api.devnet.solana.com");
+
+// Set the donation wallet address
+const donationWallet = "YOUR_SOLANA_WALLET_ADDRESS";
+
+// Create headers with CAIP blockchain ID
+const headers = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers":
+    "Content-Type, x-blockchain-ids, x-action-version",
+  "Content-Type": "application/json",
+  "x-blockchain-ids": blockchain,
+  "x-action-version": "2.4",
+};
+
+// OPTIONS endpoint is required for CORS preflight requests
+// Your Blink won't render if you don't add this
+export const OPTIONS = async () => {
+  return new Response(null, { headers });
+};
+
+// GET endpoint returns the Blink metadata (JSON) and UI configuration
+export const GET = async (req: Request) => {
+  // This JSON is used to render the Blink UI
+  const response: ActionGetResponse = {
+    type: "action",
+    icon: `${new URL("/donate-sol.jpg", req.url).toString()}`,
+    label: "1 SOL",
+    title: "Donate SOL",
+    description:
+      "This Blink demonstrates how to donate SOL on the Solana blockchain. It is a part of the official Blink Starter Guides by Dialect Labs.",
+    // Links is used if you have multiple actions or if you need more than one params
+    links: {
+      actions: [
+        {
+          // Defines this as a blockchain transaction
+          type: "transaction",
+          label: "0.01 SOL",
+          // This is the endpoint for the POST request
+          href: `/api/actions/donate-sol?amount=0.01`,
+        },
+        {
+          type: "transaction",
+          label: "0.05 SOL",
+          href: `/api/actions/donate-sol?amount=0.05`,
+        },
+        {
+          type: "transaction",
+          label: "0.1 SOL",
+          href: `/api/actions/donate-sol?amount=0.1`,
+        },
+        {
+          // Example for a custom input field
+          type: "transaction",
+          href: `/api/actions/donate-sol?amount={amount}`,
+          label: "Donate",
+          parameters: [
+            {
+              name: "amount",
+              label: "Enter a custom SOL amount",
+              type: "number",
+            },
+          ],
+        },
+      ],
+    },
+  };
+
+  // Return the response with proper headers
+  return new Response(JSON.stringify(response), {
+    status: 200,
+    headers,
+  });
+};
+
+// POST endpoint handles the actual transaction creation
+export const POST = async (req: Request) => {
+  try {
+    // Step 1:Extract parameters from the URL
+    const url = new URL(req.url);
+
+    // Amount of SOL to transfer is passed in the URL
+    const amount = Number(url.searchParams.get("amount"));
+
+    // Payer public key is passed in the request body
+    const request: ActionPostRequest = await req.json();
+    const payer = new PublicKey(request.account);
+
+    // Receiver is the donation wallet address
+    const receiver = new PublicKey(donationWallet);
+
+    // Step 2: Prepare the transaction
+    const transaction = await prepareTransaction(
+      connection,
+      payer,
+      receiver,
+      amount
+    );
+
+    // Step 3: Create a response with the serialized transaction
+    const response: ActionPostResponse = {
+      type: "transaction",
+      transaction: Buffer.from(transaction.serialize()).toString("base64"),
+    };
+
+    // Return the response with proper headers
+    return Response.json(response, { status: 200, headers });
+  } catch (error) {
+    // Log and return an error response
+    console.error("Error processing request:", error);
+    return new Response(JSON.stringify({ error: "Internal server error" }), {
+      status: 500,
+      headers,
+    });
+  }
+};
+
+const prepareTransaction = async (
+  connection: Connection,
+  payer: PublicKey,
+  receiver: PublicKey,
+  amount: number
+) => {
+  // Create a transfer instruction
+  const instruction = SystemProgram.transfer({
+    fromPubkey: payer,
+    toPubkey: new PublicKey(receiver),
+    lamports: amount * LAMPORTS_PER_SOL,
+  });
+
+  // Get the latest blockhash
+  const { blockhash } = await connection.getLatestBlockhash();
+
+  // Create a transaction message
+  const message = new TransactionMessage({
+    payerKey: payer,
+    recentBlockhash: blockhash,
+    instructions: [instruction],
+  }).compileToV0Message();
+
+  // Create and return a versioned transaction
+  return new VersionedTransaction(message);
+};
+```
+
+## Register your blink
+
+Please note that it is strongly advised to register your blink in our[ registry](https://terminal.dial.to/). That way we can list it in our Standard Blinks Library, giving your blink extra exposure and it will unfurl on social media sites, such as X.
+
+## Conclusion
+
+This guide showed you how to build a blink that sends SOL to another wallet using `NextJS`. The goal was to demonstrate how quickly blinks can be built, and how they work.
+
+At this stage, you could already host your blink making it possible for clients to integrate it into their websites and services.
+
+In the next sections, you will find more use-cases for blinks, including forms, multi-step blinks and much more. You’ll learn how to create and customize experiences that fit your users’ needs.
+
+If you want more hands-on examples, visit our [guides section](./guides/index.md).

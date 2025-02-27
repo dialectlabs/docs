@@ -1,8 +1,4 @@
----
-sidebar_position: 4
----
-
-# Use Miniblinks to integrate individual buttons & actions
+# Miniblinks
 
 Miniblinks are a way to integrate smaller portions of the full blink into your product. In other words, they let you teleport buttons and other single actions between web3 products.
 
@@ -10,7 +6,7 @@ This section describes how to add Miniblinks directly to your web dapp using our
 
 You can find an example using Miniblinks [here](https://github.com/dialectlabs/blinks/blob/main/examples/mini-blinks/src/App.tsx).
 
-## Miniblinks let you select individual actions
+## Concept
 
 Full blinks often contain more than one button or atomic unit of action. In the Donation blink below, there are 4 individual, independent actions:
 
@@ -25,7 +21,7 @@ Because each of these are actions that can be taken individually, they are usabl
 
 <figure><img src="/img//image (29).png" alt="" /><figcaption></figcaption></figure>
 
-## Using the Miniblink component to target a specific button or action
+## Usage
 
 In this example we'll use the Miniblink SDK component to select just the action corresponding to the custom input field, and render just that.
 

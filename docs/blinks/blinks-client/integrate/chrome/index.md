@@ -2,9 +2,9 @@
 sidebar_position: 8
 ---
 
-# Add blinks to 3rd party sites via your Chrome extension
+# Chrome extension
 
-This section is for Chrome extension developers who want to add Blinks to third party sites like Twitter. If you're interested in Native blink support check out our [React SDK](add-blinks-to-your-web-app.md) or [React Native SDK](add-blinks-to-your-mobile-app.md).
+This section is for Chrome extension developers who want to add Blinks to third party sites like Twitter. If you're interested in Native blink support check out our [React SDK](https://www.npmjs.com/package/@dialectlabs/blinks) or [React Native SDK](https://www.npmjs.com/package/@dialectlabs/blinks-react-native).
 
 <figure><img src="/img/Asset 13.png" alt="" /><figcaption></figcaption></figure>
 
@@ -76,5 +76,3 @@ class MyActionAdapter implements ActionAdapter {
   async signMessage(data: string | SignMessageData, context: ActionContext) { ... }
 }
 ```
-
-More details about multi-chain support and compatibility can be found here [versioning-and-multichain-compatibility.md](../specification/versioning-and-multichain-compatibility.md "mention")

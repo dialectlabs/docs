@@ -3,8 +3,7 @@
   "position": 1,
   "link": {
     "type": "generated-index",
-    "title": "Blinks Provider Guides",
-    "description": "Learn how to build a Blinks Provider, an API that serves Blinks to your application.",
-    "slug": "/blinks-provider/guides"
+    "title": "Guides",
+    "description": "Learn how to build a Blinks Provider, an API that serves Blinks to your application."
   }
 }
