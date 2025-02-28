@@ -39,7 +39,7 @@ const config: Config = {
       {
         id: "blinks",
         path: "docs/blinks",
-        routeBasePath: "/",
+        routeBasePath: "blinks",
         sidebarPath: "./sidebarsBlinks.ts",
         docItemComponent: "@theme/ApiItem",
       },
