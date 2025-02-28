@@ -93,6 +93,15 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: "img/dialect-social-card.png",
+    metadata: [
+      { name: "og:title", content: "Dialect Developer Documentation" },
+      {
+        name: "og:description",
+        content:
+          "Documentation and guides for building and integrating Dialect Blinks and Alerts.",
+      },
+      { name: "og:image", content: "/img/dialect-social-card.png" },
+    ],
     navbar: {
       title: "Dialect",
       logo: {
