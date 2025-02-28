@@ -14,7 +14,7 @@ You can customize icon depending on notification types. For example you might wa
 
 See how to manage your notification types:
 
-[managing-notification-types.md](../sdk/typescript/managing-notification-types.md)
+[managing-notification-types.md](../sdk/typescript/managing-notification-types)
 
 Here's an example how to achieve it:
 

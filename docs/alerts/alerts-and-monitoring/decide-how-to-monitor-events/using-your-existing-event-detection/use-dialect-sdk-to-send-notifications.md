@@ -9,9 +9,9 @@ It is up to you how to optimize your backend and integrate these two steps to se
 
 These sections in the SDK portion of documentation detail this easy two-step process:
 
-[load-your-dapp.md](../../sdk/typescript/load-your-dapp.md)
+[load-your-dapp.md](../../sdk/typescript/load-your-dapp)
 
-[sending-dapp-to-user-messages.md](../../sdk/typescript/sending-dapp-to-user-messages.md)
+[sending-dapp-to-user-messages.md](../../sdk/typescript/sending-dapp-to-user-messages)
 
 Here is an example of a live integration of the Dialect SDK into the [governance-api](https://github.com/dialectlabs/governance-api) backend. This integration is used to power notifications for post and comment upvotes and replies on the [Realms Discover](https://app.realms.today/discover) dApp. The Dialect SDK is setup [here](https://github.com/dialectlabs/governance-api/tree/main/src/dialect) (in this case, wrapped within NestJs to match their architecture), and an example of firing a notification from within their existing services occurs [here](https://github.com/dialectlabs/governance-api/blob/ff75c5f014afffb29f0b20bb517b8301ab706895/src/realm-feed-item/realm-feed-item.service.ts#L502).
 

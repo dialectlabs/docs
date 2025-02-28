@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Sending Dapp-to-User Messages
 
-This section assumes you have loaded a dapp as described in the [previous section](load-your-dapp.md).
+This section assumes you have loaded a dapp as described in the [previous section](load-your-dapp).
 
 Sending notifications to subscribers is a simple abstraction on top of standard Dialect messaging with the added functionality:
 
@@ -18,7 +18,7 @@ To send notifications with the Dialect `dapp.messages.send` method, you need to 
 1. _message (mandatory)_: This is what you want to tell users. It's the main part of your notification.
 2. _addressTypes (optional)_: Tells where you want to send your notification (like `email` or `telegram)`. This lets users get your message where they prefer. Defaults to all `addressTypes`.
 3. _title (mandatory for emails)_: A short headline for your notification. Mandatory if you're sending an `email` or to all `addressTypes.`
-4. _notificationTypeId (optional)_: A special ID that tells what kind of notification you're sending. You can [set these up in Dialect first](managing-notification-types.md).
+4. _notificationTypeId (optional)_: A special ID that tells what kind of notification you're sending. You can [set these up in Dialect first](managing-notification-types).
 5. _actions (optional):_ Lets you add a button to your notification and make it actionable. Right now, you can only add one button that can take people to a website when they click it.
 
 ## Practical Examples

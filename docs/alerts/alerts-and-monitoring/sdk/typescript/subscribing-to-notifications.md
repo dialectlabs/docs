@@ -6,7 +6,7 @@ sidebar_position: 4
 
 Dialect allows users to manage subscriptions to receive notifications from dapps to specific addresses they have registered.
 
-Addresses include not just their wallet via the Dialect protocol, but also email, Telegram, & SMS. To learn more about addresses, see the previous section on [managing addresses](managing-addresses.md).
+Addresses include not just their wallet via the Dialect protocol, but also email, Telegram, & SMS. To learn more about addresses, see the previous section on [managing addresses](managing-addresses).
 
 :::info
 A subscription, a linker table between dapps & addresses, is called a `dappAddress.`This will likely be renamed as it can be misleading.

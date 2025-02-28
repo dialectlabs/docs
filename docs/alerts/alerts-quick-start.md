@@ -105,7 +105,7 @@ Head to [https://dashboard.dialect.to](https://dashboard.dialect.to), connect yo
 
 <img src="/img/Register your dapp.png" alt="" />
 
-You'll use this same SDK setup and configuration in your backend to send dApp notifications, as described below in [#send-notifications-from-your-backend](alerts-quick-start.md#send-notifications-from-your-backend "mention").
+You'll use this same SDK setup and configuration in your backend to send dApp notifications, as described below in [#send-notifications-from-your-backend](alerts-quick-start#send-notifications-from-your-backend "mention").
 
 But first, let's add the notification bell to your react app, where you'll be able to subscribe for notifications and then receive them as a test user.
 
@@ -212,9 +212,9 @@ You will begin sending notifications to that test user in the next section.
 
 ### Customizing the Dialect Notification Component Themes
 
-[advancing-react-notifications](alerts-and-monitoring/advancing-react-notifications/)
+[advancing-react-notifications](alerts-and-monitoring/advancing-react-notifications)
 
-[styling-notifications-widget.md](alerts-and-monitoring/advancing-react-notifications/styling-notifications-widget.md)
+[styling-notifications-widget.md](alerts-and-monitoring/advancing-react-notifications/styling-notifications-widget)
 
 ### See our example app in our react-ui repo:
 
@@ -224,9 +224,9 @@ To see a complete working example of our notifications bell, check out the [exam
 
 Now that you have a notification bell and modal in your react app, let's use the dApp keypair we created above to begin sending notifications to users.
 
-If you haven't already, make sure you've registered your dApp keypair (see [#register-your-dapp](alerts-quick-start.md#register-your-dapp "mention")).
+If you haven't already, make sure you've registered your dApp keypair (see [#register-your-dapp](alerts-quick-start#register-your-dapp "mention")).
 
-And then create a Dialect SDK instance (see [#create-a-dialect-sdk-instance](alerts-quick-start.md#create-a-dialect-sdk-instance "mention")).
+And then create a Dialect SDK instance (see [#create-a-dialect-sdk-instance](alerts-quick-start#create-a-dialect-sdk-instance "mention")).
 
 ### Start sending messages
 

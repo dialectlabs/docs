@@ -6,7 +6,7 @@ sidebar_position: 5
 
 This code snippet assumes you have configured an sdk instance shown in this section:
 
-[configuration.md](configuration.md)
+[configuration.md](configuration)
 
 ```typescript
 import { Dapp } from "@dialectlabs/sdk";

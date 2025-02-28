@@ -79,7 +79,7 @@ Use the following visual guide to style widget. Please note that css variables a
 
 <img src="/img/notification-feed.png" alt="Notification feed styling guide" />
 
-See [styling-different-notification-types.md](styling-different-notification-types.md "mention") to learn how to style icons/links colors in notifications feed.
+See [styling-different-notification-types.md](styling-different-notification-types) to learn how to style icons/links colors in notifications feed.
 
 ### Force dark theme
 
@@ -180,4 +180,4 @@ You can customize `.dt-modal` css class to change the default modal behavior. He
 
 If you want to bring your own modal container see:
 
-[using-your-own-modal-component.md](using-your-own-modal-component.md)
+[using-your-own-modal-component.md](using-your-own-modal-component)
