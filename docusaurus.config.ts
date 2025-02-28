@@ -37,6 +37,15 @@ const config: Config = {
     [
       "@docusaurus/plugin-content-docs",
       {
+        id: "landing",
+        path: "docs/landing",
+        routeBasePath: "/",
+        sidebarPath: "./sidebarsLanding.ts",
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
         id: "blinks",
         path: "docs/blinks",
         routeBasePath: "blinks",

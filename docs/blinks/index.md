@@ -2,9 +2,11 @@
 sidebar_position: 1
 ---
 
-# Developer Documentation
+# Blinks
 
-## Blinks
+<a href="./blinks-provider/guides/">
+  <img src="/img/monad_cover.png" alt="Announcement that blinks now work on monad" />
+</a>
 
 Blockchain Links, aka Blinks, are the fastest way to take onchain experiences and make them distributable and actionable everywhere. This technology lets applications unbundle their product experiences from their apps and sites, allowing users to take instant, no-redirect actions wherever they are.
 
@@ -16,14 +18,6 @@ By building with blinks, you ensure that developers can integrate your service i
 
 The ecosystem's most innovative teams are already building with Blinks, creating powerful new ways to interact with blockchain technology. This widespread adoption opens up exciting possibilities for both developers and users.
 
-<!-- <figure><img src="/img/partners-banner (1).png" alt="" /><figcaption></figcaption></figure> -->
+<img src="/img/partners-banner (1).png" alt="" />
 
 These docs cover the Blinks specification, how Blinks are built, how they unfurl natively in front ends (or via chrome extensions), and provide practical resources on how to get started developing today.
-
-## Alerts
-
-Dialect powers alerts for many of Solana's most loved projects. All of our tooling is open-source and free to use. Get started and send your first test alert in under 15 minutes.
-
-<figure><img src="/img/Introduction - Alerts(1).png" alt="" /><figcaption></figcaption></figure>
-
-See the [Getting Started](alerts/getting-started) section for more information.
