@@ -23,7 +23,7 @@ This publickey is analagous to your dApp's "account" identity, and the keypair c
 
 ## Register your dApp in Dialect Cloud
 
-Create an `sdk` instance following these instructions from [Broken link](broken-reference "mention"). Then register a new dapp messaging keypair for this keypair using the Dialect SDK snippet below.
+Create an `sdk` instance following the configuration instructions in the previous section. Then register a new dapp messaging keypair for this keypair using the Dialect SDK snippet below.
 
 :::tip
 Dialect's database _never_ stores your dapp's private keys, only the public key.

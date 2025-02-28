@@ -13,5 +13,3 @@ All interactions with Dialect are done by first creating an `sdk` client, with s
 :::warning
 It is recommended that you perform the following actions targeting the Dialect `development` environment, and only switch to `production` when you're ready.
 :::
-
-[Broken link](broken-reference)

@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Installation
 
-To start sending notifications with Dialect via it's Typescript SDK, first install `@dialectlabs/sdk`. This is the same installation as [Messaging](broken-reference).
+To start sending notifications with Dialect via it's Typescript SDK, first install `@dialectlabs/sdk`.
 
 **npm:**
 

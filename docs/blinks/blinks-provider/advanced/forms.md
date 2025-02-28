@@ -88,7 +88,7 @@ The following advanced input types are available:
 
 ## Advanced input examples
 
-Below are more examples that showcase how you can use advanced input types in your code. For full blink examples make sure you visit our [guides section](./guides/index.md).
+Below are more examples that showcase how you can use advanced input types in your code. For full blink examples make sure you visit our [guides section](../guides).
 
 ### Dropdown and radio buttons
 

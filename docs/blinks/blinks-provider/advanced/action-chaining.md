@@ -94,4 +94,4 @@ const response: ActionPostResponse = {
 
 This saves a network call and can help transition the client to then next step in the chain optimistically.
 
-See the full inline chaining example [here](https://github.com/dialectlabs/actions/blob/main/examples/hono/examples/chaining/inline/route.ts), or read about it in the spec [here](../../actions/specification/action-chaining.md).
+See the full inline chaining example [here](https://github.com/dialectlabs/actions/blob/main/examples/hono/examples/chaining/inline/route.ts).

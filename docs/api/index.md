@@ -4,7 +4,7 @@ Documentation for the [Alerts](../alerts) and [Blinks](../blinks) APIs is availa
 
 ## Blinks API
 
-For implementation details and endpoint reference, see the [headless integration guide](../blinks/blinks-client/integrate/headless/index.md).
+For implementation details and endpoint reference, see the [headless integration guide](../blinks/blinks-client/integrate/headless).
 
 OpenAPI specification:  
 https://api.dial.to/docs
