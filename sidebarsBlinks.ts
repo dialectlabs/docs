@@ -143,7 +143,7 @@ const sidebars: SidebarsConfig = {
           "Learn how to build a Blinks Provider, an API that serves Blinks to your application.",
         slug: "/blinks-provider/guides",
       },
-      items: ["blinks-provider/guides/guide1"],
+      items: ["blinks-provider/guides/tip-blink"],
     },
     {
       type: "html",
