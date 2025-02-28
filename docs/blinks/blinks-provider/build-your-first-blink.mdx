@@ -148,17 +148,14 @@ Enable CORS for cross-origin requests and standard headers for the API endpoints
 ```typescript
 //file: src/app/api/actions/transfer-sol/route.ts
 
-import { BLOCKCHAIN_IDS } from "@solana/actions";
+import { ACTIONS_CORS_HEADERS, BLOCKCHAIN_IDS } from "@solana/actions";
 
 // Set standardized headers for Blink Providers
 const headers = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-  "Access-Control-Allow-Headers":
-    "Content-Type, x-blockchain-ids, x-action-version",
-  "Content-Type": "application/json",
+  ...ACTIONS_CORS_HEADERS,
   "x-blockchain-ids": blockchain,
   "x-action-version": "2.4",
+};
 };
 
 // OPTIONS endpoint is required for CORS preflight requests
@@ -181,7 +178,11 @@ It describes:
 ```jsx
 //file: src/app/api/actions/transfer-sol/route.ts
 
-import { ActionGetResponse, BLOCKCHAIN_IDS } from "@solana/actions";
+import {
+  ActionGetResponse,
+  ACTIONS_CORS_HEADERS,
+  BLOCKCHAIN_IDS,
+} from "@solana/actions";
 
 // GET endpoint returns the Blink metadata (JSON) and UI configuration
 export const GET = async (req: Request) => {
@@ -262,6 +263,7 @@ import {
   ActionGetResponse,
   ActionPostRequest,
   ActionPostResponse,
+  ACTIONS_CORS_HEADERS,
   BLOCKCHAIN_IDS,
 } from "@solana/actions";
 
@@ -423,6 +425,7 @@ import {
   ActionGetResponse,
   ActionPostRequest,
   ActionPostResponse,
+  ACTIONS_CORS_HEADERS,
   BLOCKCHAIN_IDS,
 } from "@solana/actions";
 
@@ -446,11 +449,7 @@ const donationWallet = "YOUR_SOLANA_WALLET_ADDRESS";
 
 // Create headers with CAIP blockchain ID
 const headers = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-  "Access-Control-Allow-Headers":
-    "Content-Type, x-blockchain-ids, x-action-version",
-  "Content-Type": "application/json",
+  ...ACTIONS_CORS_HEADERS,
   "x-blockchain-ids": blockchain,
   "x-action-version": "2.4",
 };

@@ -156,7 +156,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "html",
-      value: "MOAR",
+      value: "MORE",
       className: "sidebar-title",
     },
     {
