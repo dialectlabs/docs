@@ -26,4 +26,4 @@ Dialect powers alerts for many of Solana's most loved projects. All of our tooli
 
 <figure><img src="/img/Introduction - Alerts(1).png" alt="" /><figcaption></figcaption></figure>
 
-See the [Getting Started](alerts/getting-started.md) section for more information.
+See the [Getting Started](alerts/getting-started) section for more information.
