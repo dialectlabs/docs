@@ -54,21 +54,30 @@ const config: Config = {
       },
     ],
     [
-      "docusaurus-plugin-openapi-docs",
+      "@docusaurus/plugin-content-docs",
       {
-        id: "api", // plugin id
-        docsPluginId: "classic", // configured for preset-classic
-        config: {
-          "blink-api": {
-            specPath: "https://api.dial.to/openapi",
-            outputDir: "docs/blinks/blinks-client/integrate/headless/api-docu",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          } satisfies OpenApiPlugin.Options,
-        },
+        id: "api",
+        path: "docs/api",
+        routeBasePath: "api",
+        sidebarPath: "./sidebarsApi.ts",
       },
     ],
+    // [
+    //   "docusaurus-plugin-openapi-docs",
+    //   {
+    //     id: "api", // plugin id
+    //     docsPluginId: "classic", // configured for preset-classic
+    //     config: {
+    //       "blink-api": {
+    //         specPath: "https://api.dial.to/openapi",
+    //         outputDir: "docs/blinks/blinks-client/integrate/headless/api-docu",
+    //         sidebarOptions: {
+    //           groupPathsBy: "tag",
+    //         },
+    //       } satisfies OpenApiPlugin.Options,
+    //     },
+    //   },
+    // ],
   ],
   themes: ["docusaurus-theme-openapi-docs"],
 
@@ -95,7 +104,9 @@ const config: Config = {
           label: "Alerts",
         },
         {
-          to: "https://api.dial.to/docs",
+          type: "doc",
+          docId: "index",
+          docsPluginId: "api",
           label: "API",
           position: "left",
         },
@@ -122,7 +133,7 @@ const config: Config = {
             },
             {
               label: "API",
-              to: "https://api.dial.to/docs",
+              to: "/api",
             },
           ],
         },
