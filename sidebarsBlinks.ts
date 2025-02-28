@@ -140,20 +140,45 @@ const sidebars: SidebarsConfig = {
       label: "Fallbacks",
     },
     {
-      type: "doc",
-      id: "blinks-provider/forms",
-      label: "Forms",
+      type: "category",
+      label: "Advanced",
+      link: {
+        type: "doc",
+        id: "blinks-provider/advanced/index",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "blinks-provider/advanced/forms",
+          label: "Forms",
+        },
+        {
+          type: "doc",
+          id: "blinks-provider/advanced/action-chaining",
+          label: "Action Chaining",
+        },
+        {
+          type: "doc",
+          id: "blinks-provider/advanced/track-tx",
+          label: "Transaction Tracking",
+        },
+      ],
     },
-    {
-      type: "doc",
-      id: "blinks-provider/action-chaining",
-      label: "Action Chaining",
-    },
-    {
-      type: "doc",
-      id: "blinks-provider/track-tx",
-      label: "Track Transactions",
-    },
+    // {
+    //   type: "doc",
+    //   id: "blinks-provider/forms",
+    //   label: "Forms",
+    // },
+    // {
+    //   type: "doc",
+    //   id: "blinks-provider/action-chaining",
+    //   label: "Action Chaining",
+    // },
+    // {
+    //   type: "doc",
+    //   id: "blinks-provider/track-tx",
+    //   label: "Track Transactions",
+    // },
     {
       type: "category",
       label: "Guides",
