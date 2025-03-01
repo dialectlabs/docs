@@ -101,6 +101,11 @@ const config: Config = {
           "Documentation and guides for building and integrating Dialect Blinks and Alerts.",
       },
       { name: "og:image", content: "/img/dialect-social-card.png" },
+      {
+        name: "keywords",
+        content:
+          "dialect, blinks, alerts, documentation, web3, blockchain, solana",
+      },
     ],
     navbar: {
       title: "Dialect",
