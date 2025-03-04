@@ -12,9 +12,7 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc",
-    "prebuild": "ts-node scripts/generate-guides.ts",
-    "prestart": "ts-node scripts/generate-guides.ts"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@dialectlabs/blinks": "^0.22.4",
