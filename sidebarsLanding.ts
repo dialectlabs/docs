@@ -10,18 +10,18 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "html",
-      value: "GETTING STARTED",
+      value: "QUICK START",
       className: "sidebar-title",
     },
     {
       type: "link",
-      href: "/blinks/blinks-client/",
+      href: "/blinks/blinks-client/integrate",
       label: "Integrate Blinks",
     },
     {
       type: "link",
-      href: "/blinks/blinks-provider/",
-      label: "Build Blinks",
+      href: "/blinks/blinks-provider/build-your-first-blink",
+      label: "Build your first Blink",
     },
     {
       type: "link",
@@ -30,7 +30,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "link",
-      href: "/alerts/getting-started",
+      href: "/blinks/blinks-scaffolds/",
+      label: "Blinks Scaffolds",
+    },
+    {
+      type: "link",
+      href: "/alerts/alerts-quick-start",
       label: "Send Alerts",
     },
     {
