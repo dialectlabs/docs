@@ -4,6 +4,91 @@
       "source": "/documentation/actions/security",
       "destination": "/blinks/blinks-provider/blink-registry",
       "permanent": true
+    },
+    {
+      "source": "/documentation/blinks/quick-start",
+      "destination": "/blinks",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/blinks/specification",
+      "destination": "/blinks/blinks-provider/advanced",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/blinks/security",
+      "destination": "/blinks/blinks-provider/blink-registry",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/blinks/the-blinks-public-registry",
+      "destination": "/blinks/blinks-provider/blink-registry",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/blinks/guides/monad-starter-guides",
+      "destination": "/blinks/blinks-scaffolds/monad",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/blinks/guides/monad-starter-guides/create-a-tip-blink",
+      "destination": "/blinks/blinks-provider/guides/tip-blink",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/blinks/blinks-client/integrate/ui-components/web",
+      "destination": "/blinks/blinks-client/integrate/ui-components/blinks",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/blinks/blinks-client/integrate/ui-components/mobile",
+      "destination": "/blinks/blinks-client/integrate/ui-components/blinks",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/blinks/blinks-client/integrate/ui-components/add-blinks-to-3rd-party-sites-via-your-chrome-extension",
+      "destination": "/blinks/blinks-client/integrate/chrome",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/blinks/blinks-client/integrate/ui-components/use-miniblinks-to-integrate-individual-buttons-and-actions",
+      "destination": "/blinks/blinks-client/integrate/ui-components/miniblinks",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/blinks/blinks-client/:path*",
+      "destination": "/blinks/blinks-client/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/blinks/blinks-provider/:path*",
+      "destination": "/blinks/blinks-provider/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/alerts/alerts-and-monitoring/:path*",
+      "destination": "/alerts/alerts-and-monitoring/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/alerts/:path*",
+      "destination": "/alerts/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/blinks/:path*",
+      "destination": "/blinks/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/documentation",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/:path*",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }
