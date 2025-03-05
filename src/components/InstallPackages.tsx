@@ -4,7 +4,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-export default function InstallPackage({
+export default function InstallPackages({
   packageName,
 }: {
   packageName: string;

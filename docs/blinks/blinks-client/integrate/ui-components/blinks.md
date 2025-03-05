@@ -1,4 +1,4 @@
-import InstallPackage from "@site/src/components/InstallPackage";
+import InstallPackages from "@site/src/components/InstallPackages";
 
 # Blinks
 
@@ -15,7 +15,7 @@ This section covers adding Blinks directly to your React dApp using our [Blinks 
 
 ### Installation
 
-<InstallPackage packageName="@dialectlabs/blinks" />
+<InstallPackages packageName="@dialectlabs/blinks" />
 
 ### Adding Component
 
@@ -86,7 +86,7 @@ This section covers adding blinks directly to your React Native dApp through our
 
 ### Installation
 
-<InstallPackage packageName="@dialectlabs/blinks @dialectlabs/blinks-react-native" />{" "}
+<InstallPackages packageName="@dialectlabs/blinks @dialectlabs/blinks-react-native" />
 
 ### Adding Component
 
