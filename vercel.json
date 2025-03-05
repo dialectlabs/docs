@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/documentation/actions/security",
+      "destination": "/blinks/blinks-provider/blink-registry",
+      "permanent": true
+    }
+  ]
+}
