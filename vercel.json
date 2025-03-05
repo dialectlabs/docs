@@ -6,6 +6,11 @@
       "permanent": true
     },
     {
+      "source": "/documentation/actions/the-blinks-public-registry",
+      "destination": "/blinks/blinks-provider/blink-registry",
+      "permanent": true
+    },
+    {
       "source": "/documentation/blinks/quick-start",
       "destination": "/blinks",
       "permanent": true
