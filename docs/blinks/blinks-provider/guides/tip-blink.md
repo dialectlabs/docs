@@ -120,7 +120,7 @@ Every blink has an image that is rendered on top. If you have your image already
 
 In our example we will paste a file called `tip-mon.png` into this public folder.
 
-<img src="../../../.gitbook/assets/Screenshot 2025-01-24 at 14.49.06.png" alt="Screenshot of public folder in NextJS project" width="346" />
+<img src="/img/Screenshot 2025-01-24 at 14.49.06.png" alt="Screenshot of public folder in NextJS project" width="346" />
 
 ### Create environment variables
 
@@ -251,7 +251,7 @@ Note: [dial.to](http://dial.to/) currently supports only `GET` previews for `EVM
 
 Visit [dial.to](http://dial.to/) and type in the link to your blink to see if it works. If your server runs on `localhost:3000` the url should be like this: `http://localhost:3000/api/actions/tip-mon`
 
-<img src="../../../.gitbook/assets/Screenshot 2025-01-24 at 14.53.44.png" alt="Screenshot of a blink rendered on dial.to" />
+<img src="/img/Screenshot 2025-01-24 at 14.53.44.png" alt="Screenshot of a blink rendered on dial.to" />
 
 ### POST endpoint
 
@@ -517,7 +517,3 @@ In this tutorial, you learned, how to create a simple blink that tips another wa
 The next step is to get your blink deployed for use, and then register your blink. By registering your blink, it gets added to our library, giving you extra distribution and exposure. It also ensures that your blink will unfurl and be usable on X.
 
 In the next tutorial, you will learn how you can implement the blink client, that renders your blink in the frontend.
-
-```
-
-```
