@@ -10,7 +10,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "html",
-      value: "QUICK START",
+      value: "BLINKS",
       className: "sidebar-title",
     },
     {
@@ -34,36 +34,45 @@ const sidebars: SidebarsConfig = {
       label: "Blinks Scaffolds",
     },
     {
-      type: "link",
-      href: "/alerts/alerts-quick-start",
-      label: "Send Alerts",
-    },
-    {
-      type: "link",
-      href: "/api",
-      label: "API Playground",
-    },
-    {
       type: "html",
-      value: "SDK",
+      value: "ALERTS",
       className: "sidebar-title",
     },
     {
       type: "link",
-      href: "https://github.com/dialectlabs/sdk",
-      label: "Alert SDK",
+      href: "/alerts/alerts-quick-start",
+      label: "Quick Start",
     },
     {
       type: "link",
-      href: "https://www.npmjs.com/package/@dialectlabs/blinks",
-      label: "Blinks React SDK",
+      href: "alerts/alerts-and-monitoring/registering-your-dapp",
+      label: "Register your Dapp",
     },
     {
       type: "link",
-      href: "https://www.npmjs.com/package/@dialectlabs/blinks-react-native",
-      label: "Blinks React Native SDK",
+      href: "/alerts/alerts-and-monitoring/sdk/typescript/sending-dapp-to-user-messages",
+      label: "Send Alerts",
     },
-
+    {
+      type: "link",
+      href: "/alerts/alerts-and-monitoring/sdk/typescript/installation",
+      label: "TypeScript SDK",
+    },
+    {
+      type: "html",
+      value: "API",
+      className: "sidebar-title",
+    },
+    {
+      type: "link",
+      href: "https://api.dial.to/docs",
+      label: "Blinks API",
+    },
+    {
+      type: "link",
+      href: "https://alerts-api.dial.to/docs",
+      label: "Alerts API",
+    },
     {
       type: "html",
       value: "FOLLOW US",
