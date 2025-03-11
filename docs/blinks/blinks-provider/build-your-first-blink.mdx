@@ -150,12 +150,14 @@ Enable CORS for cross-origin requests and standard headers for the API endpoints
 
 import { ACTIONS_CORS_HEADERS, BLOCKCHAIN_IDS } from "@solana/actions";
 
+// CAIP-2 format for Solana
+const blockchain = BLOCKCHAIN_IDS.devnet;
+
 // Set standardized headers for Blink Providers
 const headers = {
   ...ACTIONS_CORS_HEADERS,
   "x-blockchain-ids": blockchain,
   "x-action-version": "2.4",
-};
 };
 
 // OPTIONS endpoint is required for CORS preflight requests
