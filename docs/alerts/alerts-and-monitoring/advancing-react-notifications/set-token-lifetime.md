@@ -1,6 +1,16 @@
 # Set Token Lifetime
 
-The token is your user's key to interact with their data - they need it to fetch their feed, subscribe to new alerts or change settings. You choose for how long your refresh token should be valid. For security reasons, we allow you a maximum expiration date of three months.
+The token is your user's key to interact with their data - they need it to fetch their feed, subscribe to new alerts or change settings. You choose for how long your refresh token should be valid. For security reasons, we recommend a maximum expiration date of three months.
+
+## Token Expiration Basics
+
+:::tip
+If you don't want your tokens to expire, you can set the expiration time to a higher limit, e.g. 100 years: `tokenLifetimeMinutes: 100 * 365 * 24 * 60`
+:::
+
+- **Default expiration**: 24 hours
+- **Recommended maximum**: 3 months
+- **Configuration**: Set via `tokenLifetimeMinutes` in your config object
 
 ## Why do tokens expire?
 
@@ -37,7 +47,7 @@ export const DialectSolanaNotificationsButton = () => {
       config={{
         dialectCloud: {
           tokenStore: "local-storage",
-          tokenLifetimeMinutes: 3 * 30 * 24 * 60 * 60, // 3 months
+          tokenLifetimeMinutes: 3 * 30 * 24 * 60, // 3 months (recommended)
         },
       }}
     >
