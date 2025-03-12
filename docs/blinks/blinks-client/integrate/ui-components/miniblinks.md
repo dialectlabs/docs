@@ -25,15 +25,15 @@ Because each of these are actions that can be taken individually, they are usabl
 
 In this example we'll use the Miniblink SDK component to select just the action corresponding to the custom input field, and render just that.
 
-As usual, we use `useAction` to fetch the full action data from an action URL. The action object then has all 4 of the possible actions in the `links.actions`attribute.
+As usual, we use `useBlink` to fetch the full blink data from an blink URL. The blink object then has all 4 of the possible actions in the `links.actions`attribute.
 
 ```typescript
-const { action, isLoading } = useAction({
+const { blink, isLoading } = useBlink({
   url: "solana-action:https://dial.to/api/donate",
 });
 ```
 
-With the above action, the client will fetch the following JSON:
+With the above blink, the client will fetch the following JSON:
 
 ```json
 {
@@ -81,7 +81,7 @@ Miniblinks let us select for just one of the sub actions above using the `select
   selector={(currentAction) =>
     currentAction.actions.find((a) => a.label === "Donate")!
   }
-  action={action}
+  blink={blink}
   adapter={adapter}
 />
 ```
