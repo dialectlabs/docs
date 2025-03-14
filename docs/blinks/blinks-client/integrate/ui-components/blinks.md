@@ -21,14 +21,14 @@ This section covers adding Blinks directly to your React dApp using our [Blinks 
 
 To simplify the integration, the following hooks are exported from `@dialectlabs/blinks/react`
 
-- `useAction` - This is the overall hook, it fetches the Action, sets up an adapter, initializes a registry, and refreshes it every 10 minutes.
-- `useActionsRegistry` - This fetches the registry and refreshes it.
-- `useActionSolanaWalletAdapter` - This sets up an adapter for `Action` using a wallet provider.
+- `useBlink` - This is the overall hook, it fetches the `BlinkInstance`, initializes a security registry, and refreshes it every 10 minutes.
+- `useBlinksRegistryInterval` - This fetches the security registry and refreshes it.
+- `useBlinkSolanaWalletAdapter` - This sets up an adapter for `Blink` using a wallet provider.
 
-If you want to build your own hooks, use `Action` , `ActionsRegistry` , and `ActionConfig/ActionAdapter` classes and interfaces.
+If you want to build your own hooks, use `Blink` , `BlinksRegistry` , and `BlinkConfig/BlinkAdapter` classes and interfaces.
 
 :::warning
-If you are using the `useActionSolanaWalletAdapter` hook, then be sure to have`<WalletProvider />`and`<WalletModalProvider />` above in the component tree.
+If you are using the `useBlinkSolanaWalletAdapter` hook, then be sure to have`<WalletProvider />`and`<WalletModalProvider />` above in the component tree.
 :::
 
 ### Usage
@@ -45,34 +45,31 @@ import "@dialectlabs/blinks/index.css";
 
 import {
   Blink,
-  useAction,
-  useActionsRegistryInterval,
+  useBlink,
+  useBlinksRegistryInterval,
 } from "@dialectlabs/blinks";
-import { useActionSolanaWalletAdapter } from "@dialectlabs/blinks/hooks/solana";
+import { useBlinkSolanaWalletAdapter } from "@dialectlabs/blinks/hooks/solana";
 
 const App = () => {
-  // Checks if blink exists in registry
-  useActionsRegistryInterval();
-
   // URL of your endpoint (blink provider)
-  const actionApiUrl = "...";
+  const blinkApiUrl = "...";
 
   // Initiates adapter
-  const { adapter } = useActionSolanaWalletAdapter(
+  const { adapter } = useBlinkSolanaWalletAdapter(
     "<YOUR_RPC_URL_OR_CONNECTION>"
   );
 
-  // Fetches the action from the provided URL
-  const { action, isLoading } = useAction({ url: actionApiUrl });
+  // Fetches the blink from the provided URL
+  const { blink, isLoading } = useBlink({ url: blinkApiUrl });
 
   if (isLoading) return null;
 
-  return <Blink action={action} adapter={adapter} />;
+  return <Blink blink={blink} adapter={adapter} />;
 };
 ```
 
 :::tip
-The URLs in `ActionApiUrl` must be direct action URLs and not interstitials or website urls with actions.json
+The URLs in `blinkApiUrl` must be direct Blink provider URLs and not interstitials or website urls with actions.json
 :::
 
 ## Mobile
@@ -92,27 +89,27 @@ This section covers adding blinks directly to your React Native dApp through our
 
 The following imports are needed to simplify the Blink integration:
 
-- `useAction` hook and `ActionAdapter` type from `@dialectlabs/blinks`
+- `useBlink` hook and `BlinkAdapter` type from `@dialectlabs/blinks`
 - `Blink` component from `@dialectlabs/blinks-react-native`
 
 ### Usage
 
-A `getWalletAdapter` function has to be defined to generate an `ActionAdapter` for interactions with user wallets, like wallet connect and signing transactions through the React Native dApp.
+A `getWalletAdapter` function has to be defined to generate an `BlinkAdapter` for interactions with user wallets, like wallet connect and signing transactions through the React Native dApp.
 
 After that, the `<Blink />` component can be used in the React Native dApp to render the Blink. It takes the following props:
 
 - `theme` - has the styling for the blink to be rendered;
-- `action` - object returned from `useAction` function (which requires the adapter from `getWalletAdapter` and Action URL);
-- `websiteUrl` - the complete URL of the Action;
-- `websiteText` - the domain name of the Action URL;
+- `blink` - object returned from `useBlink` function (which requires the adapter from `getWalletAdapter` and Blink Provider URL);
+- `websiteUrl` - the complete URL of the Blink;
+- `websiteText` - the domain name of the Blink URL;
 
 ```typescript
-import { useAction, type ActionAdapter } from "@dialectlabs/blinks";
+import { useBlink, type BlinkAdapter } from "@dialectlabs/blinks";
 import { Blink } from "@dialectlabs/blinks-react-native";
 import { PublicKey } from "@solana/web3.js";
 import type React from "react";
 
-function getWalletAdapter(): ActionAdapter {
+function getWalletAdapter(): BlinkAdapter {
   return {
     connect: async (_context) => {
       console.log("connect");
@@ -131,15 +128,15 @@ function getWalletAdapter(): ActionAdapter {
 }
 
 export const BlinkInTheWalletIntegrationExample: React.FC<{
-  url: string; // could be action api or website url
+  url: string; // could be blink api or website url
 }> = ({ url }) => {
   const adapter = getWalletAdapter();
-  const { action } = useAction({ url });
+  const { blink } = useBlink({ url });
 
-  if (!action) {
+  if (!blink) {
     // return placeholder component
   }
-  const actionUrl = new URL(url);
+  const blinkUrl = new URL(url);
   return (
     <Blink
       theme={{
@@ -147,10 +144,10 @@ export const BlinkInTheWalletIntegrationExample: React.FC<{
         "--blink-border-radius-rounded-button": 9999,
         // and any other custom styles
       }}
-      action={action}
+      blink={blink}
       adapter={adapter}
-      websiteUrl={actionUrl.href}
-      websiteText={actionUrl.hostname}
+      websiteUrl={blinkUrl.href}
+      websiteText={blinkUrl.hostname}
     />
   );
 };
