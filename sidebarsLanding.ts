@@ -34,6 +34,11 @@ const sidebars: SidebarsConfig = {
       label: "Blinks Scaffolds",
     },
     {
+      type: "link",
+      href: "https://api.dial.to/docs",
+      label: "Blinks API",
+    },
+    {
       type: "html",
       value: "ALERTS",
       className: "sidebar-title",
@@ -57,16 +62,6 @@ const sidebars: SidebarsConfig = {
       type: "link",
       href: "/alerts/alerts-and-monitoring/sdk/typescript/installation",
       label: "TypeScript SDK",
-    },
-    {
-      type: "html",
-      value: "API",
-      className: "sidebar-title",
-    },
-    {
-      type: "link",
-      href: "https://api.dial.to/docs",
-      label: "Blinks API",
     },
     {
       type: "link",
