@@ -1,17 +1,15 @@
 # Push Notifications
 
-Push notifications are an effective way to notify your users by delivering timely updates and information directly to their devices, even when they're not actively using your application. Dialect's Push Notification API enables you to seamlessly integrate this capability into your applications.
+Push notifications are an effective way to engage your users about important events, even when they're not actively using your application. As a part of Dialect's Alerts Stack, we offer a push notification API that lets you
 
-## Key Benefits
+1. send push notifications from your backend, and
+2. give your users the ability to opt into, and receive, push notifications from you.
 
-- **Immediate Delivery:** Reach users instantly with important information
-- **Wallet-Based Authentication:** Securely associate notifications with specific Solana wallets
-- **User Control:** Allow users to manage their notification preferences
+Dialect's push notification API is built on top of Firebase Messaging Cloud and provides all the same performance guarantees. It also includes a number of benefits on top of Firebase that are part of our broader Alerts Stack: this API handles all the complexities of token management, device tracking, and notification delivery, allowing you to focus on creating valuable notification content for your users.
 
-## How It Works
+This section is divided into two sub-sections:
 
-1. Authentication: Users authenticate with their Solana wallet through a simple message signing process.
-2. Subscribe to Notifications: After authentication, your application registers the user's device to receive push notifications.
-3. Receive Notifications: From now on, the user will be notified about relevant events directly on their device, even when they're not actively using your application.
+1. Receive notifications—A set of APIs to build out the notification opt-in and congfiguration flows in your client app for your users.
+2. Send notifications—A set of APIs to send notifications to your users from your backend.
 
-The API handles all the complexities of token management, device tracking, and notification delivery, allowing you to focus on creating valuable notification content for your users.
+Have questions on our notifications offering? Get in touch with us at hello@dialect.to.
