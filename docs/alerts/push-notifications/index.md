@@ -5,6 +5,8 @@ Push notifications are an effective way to engage your users about important eve
 1. [Send](./send-push-notifications.md) push notifications from your backend, and
 2. give your users the ability to opt into, and [receive](./receive-push-notifications.md), push notifications from you.
 
+![Push Notifications - Mobile Phone screen with web3 related push notifications](/img/push-notifications.png)
+
 Dialect's push notification API is built on top of Firebase Messaging Cloud and provides all the same performance guarantees. It also includes a number of benefits on top of Firebase that are part of our broader Alerts Stack: this API handles all the complexities of token management, device tracking, and notification delivery, allowing you to focus on creating valuable notification content for your users.
 
 This section is divided into two sub-sections:
