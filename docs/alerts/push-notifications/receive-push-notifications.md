@@ -77,7 +77,7 @@ curl https://alerts-api.dial.to/v2/push/subscribe \
 **Parameters:**
 
 - `⁠appId`: Your application's unique identifier (provided by Dialect)
-- `⁠deviceId`: Identifier for the user's device
+- `⁠deviceId`: (Optional) Identifier for the user's device
 - `⁠fcmToken`: Firebase Cloud Messaging token from the [FCM SDK](https://firebase.google.com/docs/cloud-messaging)
 
 The subscription process associates the user's wallet address with their device, allowing your application to send targeted push notifications to this specific device.
@@ -101,7 +101,7 @@ curl https://alerts-api.dial.to/v2/push/unsubscribe \
 The unsubscribe endpoint requires the same parameters as the subscribe endpoint:
 
 - `⁠appId`: Your application's unique identifier (provided by Dialect)
-- `⁠deviceId`: Identifier for the user's device
+- `⁠deviceId`: (Optional) Identifier for the user's device
 - `⁠fcmToken`: Firebase Cloud Messaging token from the [FCM SDK](https://firebase.google.com/docs/cloud-messaging)
 
 After unsubscribing, the device will no longer receive push notifications from your application.
