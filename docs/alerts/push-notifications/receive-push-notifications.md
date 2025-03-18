@@ -58,6 +58,24 @@ If verification was successful, the server will return an authentication token:
 
 This token should be stored securely and used for the API calls that require authentication.
 
+### 4. Check status (optional)
+
+To ensure that a user is authenticated and can receive notifications, you can use the `/auth` endpoint.
+
+```shell
+curl https://alerts-api.dial.to/v2/auth \
+  --request GET \
+  --header 'Authorization: Bearer YOUR_AUTH_TOKEN'
+```
+
+This endpoint will either return a 401 error, if user is unauthenticated or the wallet address if authentication was successful
+
+```shell
+{
+  "walletAddress": "6CxnSjtasq5Tzwb4b93AhLofXtiDvMpQ2vTkWdSZqTH7"
+}
+```
+
 ## Subscribe to Push Notifications
 
 Once a user is authenticated, you can register their device to receive push notifications. To register a device for push notifications, call the subscribe endpoint with the device information:
