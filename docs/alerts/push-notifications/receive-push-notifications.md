@@ -100,7 +100,7 @@ curl https://alerts-api.dial.to/v2/auth \
   --header 'Authorization: Bearer YOUR_AUTH_TOKEN'
 ```
 
-This endpoint will either return a 401 error, if user is unauthenticated or the wallet address if authentication was successful
+This endpoint will either return a 401 error, if user is unauthenticated or the wallet address if authentication was successful.
 
 ```shell
 {
