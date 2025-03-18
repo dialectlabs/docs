@@ -43,6 +43,8 @@ The response will contain a list of wallet addresses subscribed to your applicat
 }
 ```
 
+If you want to test the endpoints, visit the [`/subscribers`](https://alerts-api.dial.to/docs#tag/application/GET/v2/%7BappId%7D/subscribers) endpoint in our API docs.
+
 ## Send One Notification
 
 To send a push notification to a specific wallet address, make a `POST` request to the send endpoint with the recipient's wallet address and notification details:
@@ -93,6 +95,8 @@ curl https://alerts-api.dial.to/v2/{appId}/send \
 - `message.actions`: Array of actions that can be taken from the notification
 - `data`: Additional custom data to include with the notification
 
+If you want to test the endpoints, visit the [`/send`](https://alerts-api.dial.to/docs#tag/application/POST/v2/%7BappId%7D/send) endpoint in our API docs.
+
 ## Send Multiple Notifications (Batch)
 
 The batch endpoint allows you to send up to **500 notifications in a single request**. Each notification in the batch follows the same format as the single notification endpoint.
@@ -129,3 +133,5 @@ curl https://alerts-api.dial.to/v2/{appId}/send-batch \
     ]
   }'
 ```
+
+If you want to test the endpoints, visit the [`/send-batch`](https://alerts-api.dial.to/docs#tag/application/POST/v2/%7BappId%7D/send-batch) endpoint in our API docs.

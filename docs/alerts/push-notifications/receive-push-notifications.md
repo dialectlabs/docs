@@ -27,6 +27,8 @@ The response will contain a message with a nonce:
 }
 ```
 
+If you want to test the endpoints, visit the [`/prepare`](https://alerts-api.dial.to/docs#tag/subscriber/POST/v2/auth/solana/prepare) endpoint in our API docs.
+
 ### 2. Sign the message
 
 In this step, the user has to sign this message with their Solana wallet. The exact implementation depends on which wallet provider you're using, but typically involves calling a `⁠signMessage` method. You can find a [sign and verify message](https://solana.com/developers/cookbook/wallets/sign-message) example in the [Solana Cookbook](https://solana.com/developers/cookbook).
@@ -58,6 +60,8 @@ If verification was successful, the server will return an authentication token:
 
 This token should be stored securely and used for the API calls that require authentication.
 
+If you want to test the endpoints, visit the [`/verify`](https://alerts-api.dial.to/docs#tag/subscriber/POST/v2/auth/solana/verify) endpoint in our API docs.
+
 ### 4. Check status (optional)
 
 To ensure that a user is authenticated and can receive notifications, you can use the `/auth` endpoint.
@@ -75,6 +79,8 @@ This endpoint will either return a 401 error, if user is unauthenticated or the 
   "walletAddress": "6CxnSjtasq5Tzwb4b93AhLofXtiDvMpQ2vTkWdSZqTH7"
 }
 ```
+
+If you want to test the endpoints, visit the [`/auth`](https://alerts-api.dial.to/docs#tag/subscriber/GET/v2/auth) endpoint in our API docs.
 
 ## Subscribe to Push Notifications
 
@@ -100,6 +106,8 @@ curl https://alerts-api.dial.to/v2/push/subscribe \
 
 The subscription process associates the user's wallet address with their device, allowing your application to send targeted push notifications to this specific device.
 
+If you want to test the endpoints, visit the [`/subscribe`](https://alerts-api.dial.to/docs#tag/subscriber/POST/v2/push/subscribe) endpoint in our API docs.
+
 ## Unsubscribe from Push Notifications
 
 The unsubscribe endpoint allows you to remove a device from the notification system.
@@ -123,3 +131,5 @@ The unsubscribe endpoint requires the same parameters as the subscribe endpoint:
 - `⁠fcmToken`: Firebase Cloud Messaging token from the [FCM SDK](https://firebase.google.com/docs/cloud-messaging)
 
 After unsubscribing, the device will no longer receive push notifications from your application.
+
+If you want to test the endpoints, visit the [`/unsubscribe`](https://alerts-api.dial.to/docs#tag/subscriber/POST/v2/push/unsubscribe) endpoint in our API docs.
