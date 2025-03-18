@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Send Push Notifications
 
 This section explains how to send push notifications to your users from your server. Once users have subscribed to notifications, you can use Dialect's API to send them targeted messages.
@@ -48,6 +52,20 @@ If you want to test the endpoints, visit the [`/subscribers`](https://alerts-api
 ## Send One Notification
 
 To send a push notification to a specific wallet address, make a `POST` request to the send endpoint with the recipient's wallet address and notification details:
+
+```mermaid
+sequenceDiagram
+    participant Server as Your Server
+    participant Dialect as Dialect API
+    participant Client as User's Device
+
+    Server->>Dialect: 1. POST /{appId}/send
+    Note over Server,Dialect: Send API Key, recipient, message
+    Dialect-->>Server: Return 202 Accepted
+    Note over Server,Dialect: Empty JSON response {}
+
+    Dialect->>Client: 2. Deliver notification
+```
 
 ```shell
 curl https://alerts-api.dial.to/v2/{appId}/send \

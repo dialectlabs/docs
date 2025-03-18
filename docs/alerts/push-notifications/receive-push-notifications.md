@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Receive Push Notifications
 
 In this section, you will learn how you can implement push notifications in your application using Dialect's push notification API. Push notifications allow your application to notify users about important events even when they're not actively using your application.
@@ -5,6 +9,30 @@ In this section, you will learn how you can implement push notifications in your
 ## Authentication Flow
 
 This is the first step and required to receive a `Bearer` token, which is used to authenticate the user with Dialect's APIs and manage the user's subscription. The authentication process uses the [Sign-in with Solana (SIWS)](https://github.com/phantom/sign-in-with-solana) flow, which forces users to sign a message with their wallet to prove ownership and login to your application.
+
+```mermaid
+sequenceDiagram
+    participant Client as Your App
+    participant Dialect as Dialect API
+
+    Client->>Dialect: 1. POST /auth/solana/prepare
+    Note over Client,Dialect: Send wallet address
+    Dialect-->>Client: Return message to sign
+
+    Client->>Client: 2. Sign message with wallet
+
+    Client->>Dialect: 3. POST /auth/solana/verify
+    Note over Client,Dialect: Send message and signature
+    Dialect-->>Client: Return Auth Token
+
+    Client->>Client: 4. Store Auth Token securely
+    Note over Client: Token valid for 1 year
+
+    Client->>Dialect: 5. GET /auth (Optional)
+    Note over Client,Dialect: Send Auth Token in header
+    Dialect-->>Client: Return wallet address if authenticated
+
+```
 
 ### 1. Request a message to sign
 
@@ -84,7 +112,25 @@ If you want to test the endpoints, visit the [`/auth`](https://alerts-api.dial.t
 
 ## Subscribe to Push Notifications
 
-Once a user is authenticated, you can register their device to receive push notifications. To register a device for push notifications, call the subscribe endpoint with the device information:
+Once a user is authenticated, you can register their device to receive push notifications. To register a device for push notifications, call the subscribe endpoint with the device information.
+
+:::tip
+Subscribe on app start and when adding new wallets.
+:::
+
+```mermaid
+sequenceDiagram
+    participant Client as Your App
+    participant Dialect as Dialect API
+
+    Client->>Dialect: 1. GET /auth (Optional)
+    Note over Client,Dialect: Verify authentication status
+    Dialect-->>Client: Return wallet address if authenticated
+
+    Client->>Dialect: 2. POST /push/subscribe
+    Note over Client,Dialect: Send Auth Token, appId, FCM Token
+    Dialect-->>Client: Subscription confirmed
+```
 
 ```shell
 curl https://alerts-api.dial.to/v2/push/subscribe \
@@ -111,6 +157,25 @@ If you want to test the endpoints, visit the [`/subscribe`](https://alerts-api.d
 ## Unsubscribe from Push Notifications
 
 The unsubscribe endpoint allows you to remove a device from the notification system.
+
+:::tip
+Always use unsubscribe when removing wallets from app.
+:::
+
+```mermaid
+sequenceDiagram
+    participant Client as Your App
+    participant Dialect as Dialect API
+
+    Client->>Dialect: 1. GET /auth (Optional)
+    Note over Client,Dialect: Verify authentication status
+    Dialect-->>Client: Return wallet address if authenticated
+
+    Client->>Dialect: 2. POST /push/unsubscribe
+    Note over Client,Dialect: Send Auth Token, appId, FCM Token
+    Dialect-->>Client: Unsubscription confirmed
+
+```
 
 ```shell
 curl https://alerts-api.dial.to/v2/push/unsubscribe \
