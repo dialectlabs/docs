@@ -32,6 +32,13 @@ If a token expires, the user will need to re-authenticate by signing a message w
 
 </details>
 
+<details>
+<summary>Is Ledger hardware wallet supported for authentication?</summary>
+
+Currently, Ledger hardware wallets are not supported for the authentication process required for push notifications. We recommend using software wallets that support message signing for the authentication flow. Support for hardware wallets like Ledger may be added in future updates.
+
+</details>
+
 ## Device Management
 
 <details>
