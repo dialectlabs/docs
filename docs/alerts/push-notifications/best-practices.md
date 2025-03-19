@@ -4,7 +4,8 @@ sidebar_position: 3
 
 # Best Practices
 
-This guide outlines recommended practices for implementing push notifications with Dialect's API to ensure reliable delivery and optimal user experience.
+This guide outlines recommended practices for implementing push notifications with Dialect's API to ensure reliable
+delivery and optimal user experience.
 
 ## Token Lifecycle Management
 
@@ -27,7 +28,9 @@ Dialect's push notification system involves two types of tokens:
 
 ### Managing Authentication Tokens
 
-Store the Dialect authentication token securely on the device. This token should be used for all authenticated API calls to Dialect's services. While the token has a 1-year expiration, we recommend implementing proper error handling for cases where the token might become invalid.
+Store the Dialect authentication token securely on the device. This token should be used for all authenticated API calls
+to Dialect's services. While the token has a 1-year expiration, we recommend implementing proper error handling for
+cases where the token might become invalid.
 
 ### Handling FCM Token Changes
 
@@ -37,7 +40,9 @@ Firebase may rotate FCM tokens periodically for security reasons. Additionally, 
 - The user clears app data
 - The device is restored from a backup
 
-To handle these scenarios, we recommend calling the [`/subscribe`](./receive-push-notifications.md#subscribe-to-push-notifications) endpoint whenever your app starts, ensuring the FCM token is always up-to-date in our system.
+To handle these scenarios, we recommend calling the
+[`/subscribe`](./receive-push-notifications.mdx#subscribe-to-push-notifications) endpoint whenever your app starts,
+ensuring the FCM token is always up-to-date in our system.
 
 For more information you can also check the Firebase docs.
 
@@ -48,7 +53,8 @@ For more information you can also check the Firebase docs.
 When your application starts, we recommend:
 
 1. Checking if you have a stored Dialect authentication token
-2. If yes, verifying it's still valid using the [`/auth`](./receive-push-notifications.md#4-check-status-optional) endpoint
+2. If yes, verifying it's still valid using the [`/auth`](./receive-push-notifications.mdx#4-check-status-optional)
+   endpoint
 3. Retrieving the current FCM token from Firebase
 4. Calling the subscribe endpoint to ensure the token is registered
 
@@ -93,4 +99,5 @@ Before deploying to production:
 3. Test across different device types and OS versions
 4. Simulate token expiration and app reinstallation scenarios
 
-By following these best practices, you can ensure a reliable and user-friendly push notification experience in your application.
+By following these best practices, you can ensure a reliable and user-friendly push notification experience in your
+application.

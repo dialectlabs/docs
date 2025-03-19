@@ -58,7 +58,7 @@ When a user reinstalls your app, their FCM token will change. We recommend subsc
 <details>
 <summary>How do I handle multiple wallets in my app?</summary>
 
-We recommend [subscribing](./receive-push-notifications.md#subscribe-to-push-notifications) each wallet separately and unsubscribing wallets when they're removed from your app. This ensures users only receive notifications relevant to their active wallets.
+We recommend [subscribing](./receive-push-notifications.mdx#subscribe-to-push-notifications) each wallet separately and unsubscribing wallets when they're removed from your app. This ensures users only receive notifications relevant to their active wallets.
 
 </details>
 
