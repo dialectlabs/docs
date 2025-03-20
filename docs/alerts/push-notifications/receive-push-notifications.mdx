@@ -3,6 +3,7 @@ sidebar_position: 1
 ---
 
 import PlatformCodeTabs from "@site/src/components/PlatformCodeTabs";
+import { androidCode, iosCode, webCode } from "@site/src/code-examples/fcmCodeSnippets";
 
 # Receive Push Notifications
 
@@ -18,7 +19,7 @@ Before implementing push notifications with Dialect:
 
    - Follow [Firebase's documentation](https://firebase.google.com/docs/cloud-messaging) to add the Firebase SDK to your
      app
-   - Implement the necessary code to request and receive an FCM token
+   - Implement the necessary code to [request and receive an FCM token](#1-obtain-firebase-cloud-messaging-fcm-token)
 
 2. **Implement wallet integration** for Solana signature verification
    - Your app must be able to request message signing from the user's wallet
@@ -168,42 +169,9 @@ sequenceDiagram
 
 Before you can subscribe to push notifications, you need to obtain an FCM token from Firebase.
 
-<PlatformCodeTabs
-  androidCode={`FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
-    if (!task.isSuccessful) {
-        // Handle error
-        return@addOnCompleteListener
-    }
-    
-    // Get FCM token
-    val fcmToken = task.result
-    
-    // Store token for later use
-    // ...
-}`}
-  iosCode={`Messaging.messaging().token { token, error in
-  if let error = error {
-    // Handle error
-    return
-  }
-  
-  if let token = token {
-    // Store FCM token for later use
-    // ...
-  }
-}`}
-  webCode={`getToken(messaging, { vapidKey: 'YOUR_VAPID_KEY' })
-  .then((currentToken) => {
-    if (currentToken) {
-      // Store FCM token for later use
-      // ...
-    } else {
-      // Handle token retrieval error
-    }
-  });`}
-/>
+<PlatformCodeTabs androidCode={androidCode} iosCode={iosCode} webCode={webCode} />
 
-For detailed implementation instructions, refer to the [Firebase Cloud Messaging documentation](https://firebase.google.com/docs/cloud-messaging) for [iOS](https://firebase.google.com/docs/cloud-messaging/ios/client) and [Android](https://firebase.google.com/docs/cloud-messaging/android/client).
+For detailed implementation instructions, refer to the [Firebase Cloud Messaging documentation](https://firebase.google.com/docs/cloud-messaging) for [iOS](https://firebase.google.com/docs/cloud-messaging/ios/client), [Android](https://firebase.google.com/docs/cloud-messaging/android/client) and [Web](https://firebase.google.com/docs/cloud-messaging/js/client).
 
 ### 2. Verify Authentication (Optional)
 
