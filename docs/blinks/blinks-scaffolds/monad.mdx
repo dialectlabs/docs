@@ -42,22 +42,18 @@ Install the dependencies
 cd blink-starter-monad && npm install
 ```
 
-#### Set RPC URL
+#### Set RPC URL 
 
-Create an `.env`-file
-
-```bash
-cp .env.example .env
-```
+By default, we use the Monad testnet RPC in our examples. If you have your own RPC, please update it in the `.env`-file. If you add your private RPC, don't forget to add the `.env` to your `.gitignore`.
 
 Update the RPC url
 
 ```
 # file: .env
 
-# Fill in the URL of your Monad RPC
+# Fill in the URL of your Monad RPC (optional)
 
-NEXT_PUBLIC_RPC_URL=https://rpc.url # RPC URL
+NEXT_PUBLIC_RPC_URL=https://testnet-rpc.monad.xyz
 ```
 
 ### Run on localhost
