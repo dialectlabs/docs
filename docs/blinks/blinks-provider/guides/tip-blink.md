@@ -126,16 +126,21 @@ In our example we will paste a file called `tip-mon.png` into this public folder
 
 Our repositories are public and we don't expose any sensitive data such as wallet addresses, RPC data, etc. in there. All this information is kept in `environment` variables.
 
-Rename the `.env.example` file in your repository into `.env` and update the entries for:
+:::note
+Depending on the example repository you cloned, there is either a `.env.example` or a `.env`-file. If you find a `.env.example`-file, make sure to rename it to `.env`. 
 
-- NEXT_PUBLIC_RPC_URL
+```shell
+mv .env.example .env
+``` 
+:::
+
+Once that's done, update your `.env` variables, in this case the `NEXT_PUBLIC_RPC_URL`.
 
 ```shell
 // File: .env
 
-<strong># Fill in the URL of your Monad RPC
-</strong>
-NEXT_PUBLIC_RPC_URL=https://rpc.url # RPC URL
+# Fill in the URL of your Monad RPC
+NEXT_PUBLIC_RPC_URL=<YOUR_RPC_URL>
 ```
 
 ### OPTIONS endpoint, headers and basic config
@@ -145,7 +150,7 @@ Enables `CORS` for cross-origin requests and standard headers for the API endpoi
 ```typescript
 // File: src/app/api/actions/tip-mon/route.ts
 
-// CAIP-2 format for Monad
+// CAIP-2 format for Monad testnet
 const blockchain = "eip155:10143";
 
 // Wallet address that will receive the tips
