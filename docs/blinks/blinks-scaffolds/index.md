@@ -17,14 +17,21 @@ Every `Blink` consists of two core components: a `Blinks Provider` (backend) and
 
 ## Getting Started
 
-1. Choose your scaffold
-2. Clone the template
-3. Set your chain configuration
-4. Start building
+To get you started, all you have to do is run the command below in your terminal. This will guide you through a small config process that helps you setup your project with our latest tools, install dependencies etc.
+
+```bash
+npx create-blinks-app
+```
+
+After you've executed the command, just `cd` into your new scaffold project folder and run:
+
+```bash
+npm run dev
+```
 
 ## Available Scaffolds
 
 - [Solana Scaffold](./solana/)
 - [Monad Scaffold](./monad/)
 
-Looking to build for other chains? Check out our [Integration Guide](#).
+<!-- Looking to build for other chains? Check out our [Integration Guide](#). -->

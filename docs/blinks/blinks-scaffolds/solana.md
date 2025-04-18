@@ -21,20 +21,12 @@ Blink scaffold Solana acts as a downloadable and reusable template that utilizes
 
 ### Installation
 
-#### Clone repository
+#### Run our Scaffold command
 
-To install the scaffold, all you have to do is to clone the repository
+To install the scaffold, all you have to do is run the command below in your terminal.
 
 ```bash
-git clone https://github.com/dialectlabs/blink-starter-solana.git
-```
-
-#### Setup
-
-Install the dependencies
-
-```shell
-cd blink-starter-solana && npm install
+npx create-blinks-app
 ```
 
 ### Run on localhost
