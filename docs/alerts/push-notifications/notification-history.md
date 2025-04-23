@@ -128,30 +128,4 @@ The response will be an empty JSON object indicating success:
 {}
 ```
 
-If you want to test the endpoint, visit the [`/history/read`](https://alerts-api.dial.to/docs#tag/subscriber/POST/v2/history/read) endpoint in our API docs.
-
-## Subscribe to In-App Alerts
-
-In addition to push notifications, users can also subscribe to receive in-app alerts:
-
-```shell
-curl https://alerts-api.dial.to/v2/subscribe \
-  --request POST \
-  --header 'Authorization: Bearer YOUR_AUTH_TOKEN' \
-  --header 'Content-Type: application/json' \
-  --data '{
-    "appId": "YOUR_APP_ID"
-  }'
-```
-
-**Parameters:**
-
-- `⁠appId`: Your application's unique identifier (provided by Dialect)
-
-The response will be an empty JSON object indicating success:
-
-```shell
-{}
-```
-
-If you want to test the endpoint, visit the [`/subscribe`](https://alerts-api.dial.to/docs#tag/subscriber/POST/v2/subscribe) endpoint in our API docs. 
+If you want to test the endpoint, visit the [`/history/read`](https://alerts-api.dial.to/docs#tag/subscriber/POST/v2/history/read) endpoint in our API docs. 
