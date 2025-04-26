@@ -136,8 +136,34 @@ successful.
 }
 ```
 
-If you want to test the endpoints, visit the [`/auth`](https://alerts-api.dial.to≠≠/docs#tag/subscriber/GET/v2/auth)
+If you want to test the endpoints, visit the [`/auth`](https://alerts-api.dial.to/docs#tag/subscriber/GET/v2/auth)
 endpoint in our API docs.
+
+## Subscribe to In-App Alerts
+
+In addition to push notifications, users can also subscribe to receive in-app alerts through your application:
+
+```shell
+curl https://alerts-api.dial.to/v2/subscribe \
+  --request POST \
+  --header 'Authorization: Bearer YOUR_AUTH_TOKEN' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "appId": "YOUR_APP_ID"
+  }'
+```
+
+**Parameters:**
+
+- `⁠appId`: Your application's unique identifier (provided by Dialect)
+
+The response will be an empty JSON object indicating success:
+
+```shell
+{}
+```
+
+If you want to test the endpoint, visit the [`/subscribe`](https://alerts-api.dial.to/docs#tag/subscriber/POST/v2/subscribe) endpoint in our API docs.
 
 ## Subscribe to Push Notifications
 
@@ -200,8 +226,14 @@ curl https://alerts-api.dial.to/v2/push/subscribe \
 The subscription process associates the user's wallet address with their device, allowing your application to send
 targeted push notifications to this specific device.
 
-If you want to test the endpoints, visit the
-[`/subscribe`](https://alerts-api.dial.to/docs#tag/subscriber/POST/v2/push/subscribe) endpoint in our API docs.
+The response will be an empty JSON object indicating success:
+
+```shell
+{}
+```
+
+If you want to test the endpoint, visit the [`/subscribe`](https://alerts-api.dial.to/docs#tag/subscriber/POST/v2/subscribe) endpoint in our API docs.
+
 
 ## Unsubscribe from Push Notifications
 
@@ -246,5 +278,17 @@ The unsubscribe endpoint requires the same parameters as the subscribe endpoint:
 
 After unsubscribing, the device will no longer receive push notifications from your application.
 
+The response will be an empty JSON object indicating success:
+
+```shell
+{}
+```
+
 If you want to test the endpoints, visit the
 [`/unsubscribe`](https://alerts-api.dial.to/docs#tag/subscriber/POST/v2/push/unsubscribe) endpoint in our API docs.
+
+## Access Notification History
+
+Once a user is authenticated and subscribed to notifications, they can access their notification history and mark messages as read. 
+
+For more information on retrieving and managing notification history, see the [Notification History](./notification-history.md) documentation.
