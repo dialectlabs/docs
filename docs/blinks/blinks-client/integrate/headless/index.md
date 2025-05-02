@@ -30,6 +30,10 @@ These features enable you to build a truly unique experience for your users.
 
 To get your client key, please sign up for our [terminal](https://terminal.dial.to/). In our examples and API documentation, the client key may be referred to as `YOUR_SECRET_TOKEN`.
 
+:::note
+The `X-Blink-Client-Key` header is optional. You can use our API endpoints without a client key, but you'll miss out on the features mentioned above.
+:::
+
 ## Blink Data Types
 
 Dialect's APIs provide three endpoints for fetching blink data: `Blink`, `BlinkPreview`, and `BlinkDataTable`.
@@ -60,6 +64,7 @@ There are no strict requirements for image dimensions, but we recommend using ei
 
 ```sh
 // CURL example to fetch a blink
+// Note: The X-Blink-Client-Key header is optional but recommended
 
 curl 'https://api.dial.to/v1/blink?apiUrl=https%3A%2F%2Fjito.dial.to%2Fstake' \
   --header 'X-Blink-Client-Key: YOUR_SECRET_TOKEN'
@@ -147,6 +152,7 @@ Because `BlinkDataTables` are often compute-intensive, they have their own endpo
 
 ```sh
 // CURL example to fetch a data table
+// Note: The X-Blink-Client-Key header is optional but recommended
 
 curl 'https://api.dial.to/v1/blink-data-table?apiUrl=https%3A%2F%2Fjito.dial.to%2Fstake' \
   --header 'X-Blink-Client-Key: YOUR_SECRET_TOKEN'
@@ -196,6 +202,7 @@ It is recommended to use a separate 16:9 image for this preview.
 
 ```sh
 // CURL example to fetch a blink preview
+// Note: The X-Blink-Client-Key header is optional but recommended
 
 curl 'https://api.dial.to/v1/blink?apiUrl=https%3A%2F%2Fjito.dial.to%2Fstake' \
   --header 'X-Blink-Client-Key: YOUR_SECRET_TOKEN'
@@ -239,6 +246,7 @@ There are no specific requirements for the design of your link structure or endp
 
 ```sh
 // CURL example of a blink POST request
+// Note: The X-Blink-Client-Key header is optional but recommended
 
 curl 'https://api.dial.to/v1/blink?apiUrl=https%3A%2F%2Fjito.dial.to%2Fstake%2Fpercentage%2F25' \
   --request POST \
