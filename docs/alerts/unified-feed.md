@@ -104,10 +104,6 @@ curl https://alerts-api.dial.to/v2/history/summary \
   --header 'X-Dialect-Client-Key: YOUR_CLIENT_KEY'
 ```
 
-**Parameters:**
-
-- `appId`: (Optional) Your application's unique identifier. When specified, acts as a filter to show summary for only that app. If not specified, returns summary for all apps.
-
 The response will contain a summary of the user's notification status:
 
 ```shell
@@ -130,15 +126,8 @@ curl https://alerts-api.dial.to/v2/history/read \
   --request POST \
   --header 'Authorization: Bearer YOUR_AUTH_TOKEN' \
   --header 'X-Dialect-Client-Key: YOUR_CLIENT_KEY' \
-  --header 'Content-Type: application/json' \
-  --data '{
-    "appId": "YOUR_APP_ID"
-  }'
+  --header 'Content-Type: application/json' 
 ```
-
-**Parameters:**
-
-- `appId`: (Optional) Your application's unique identifier. When specified, marks as read only notifications from that app. If not specified, marks all notifications from all apps as read.
 
 The response will be an empty JSON object indicating success:
 
