@@ -2,17 +2,13 @@
 sidebar_position: 3
 ---
 
-# Manage Notification History
+# 🆕 Unified Feed
 
-This section explains how to retrieve and manage notification history for your users. Once users are authenticated and have subscribed to notifications, they can access their message history and mark messages as read.
-
-:::note
-Looking for the "Unified Feed"? Check out our [Unified Feed](../unified-feed.md) documentation that allows viewing notifications from multiple apps in a single feed.
-:::
+The Unified Feed allows users to receive notifications from multiple applications in a single feed. This feature combines both in-app alerts and push notifications from all applications the user has subscribed to.
 
 ## Authentication
 
-These endpoints require authentication with a user's Bearer token, which is obtained through the [authentication process](./receive-push-notifications.mdx#get-auth-token).
+These endpoints require authentication with a user's Bearer token, which is obtained through the [authentication process](./push-notifications/receive-push-notifications.mdx#get-auth-token).
 
 ```shell
 Authorization: Bearer YOUR_AUTH_TOKEN
@@ -28,20 +24,20 @@ You can request a client key from Dialect if you don't have one.
 
 ## Get Notification History
 
-You can retrieve a user's notification history, including both read and unread messages:
+You can retrieve a user's notification history from all applications they're subscribed to:
 
 ```mermaid
 sequenceDiagram
     participant Client as Your App
     participant Dialect as Dialect API
 
-    Client->>Dialect: GET /history?appId=YOUR_APP_ID
+    Client->>Dialect: GET /history
     Note over Client,Dialect: Send Auth Token in header
-    Dialect-->>Client: Return notification history
+    Dialect-->>Client: Return notification history from all apps
 ```
 
 ```shell
-curl https://alerts-api.dial.to/v2/history?appId=YOUR_APP_ID \
+curl https://alerts-api.dial.to/v2/history \
   --request GET \
   --header 'Authorization: Bearer YOUR_AUTH_TOKEN' \
   --header 'X-Dialect-Client-Key: YOUR_CLIENT_KEY'
@@ -74,6 +70,11 @@ The response will contain a list of notifications and summary information:
       "topic": {
         "id": "123e4567-e89b-12d3-a456-426614174000",
         "name": "Announcements"
+      },
+      "app": {
+        "id": "255d6163-7e25-43e9-a188-c2f8d0980a4a",
+        "name": "Dialect",
+        "icon": "https://www.dialect.to/favicon.ico"
       }
     }
   ],
@@ -88,22 +89,20 @@ The response will contain a list of notifications and summary information:
 }
 ```
 
+Note: When `appId` is not specified, the response includes additional `app` information for each alert, containing the application's ID, name, and icon.
+
 If you want to test the endpoint, visit the [`/history`](https://alerts-api.dial.to/docs#tag/subscriber/GET/v2/history) endpoint in our API docs.
 
 ## Get History Summary
 
-To get a quick summary of a user's notification status without retrieving the full history, use the summary endpoint:
+To get a quick summary of a user's notification status:
 
 ```shell
-curl https://alerts-api.dial.to/v2/history/summary?appId=YOUR_APP_ID \
+curl https://alerts-api.dial.to/v2/history/summary \
   --request GET \
   --header 'Authorization: Bearer YOUR_AUTH_TOKEN' \
   --header 'X-Dialect-Client-Key: YOUR_CLIENT_KEY'
 ```
-
-**Parameters:**
-
-- `appId`: (Optional) Your application's unique identifier. When specified, acts as a filter to show summary for only that app. If not specified, returns summary for all apps.
 
 The response will contain a summary of the user's notification status:
 
@@ -127,15 +126,8 @@ curl https://alerts-api.dial.to/v2/history/read \
   --request POST \
   --header 'Authorization: Bearer YOUR_AUTH_TOKEN' \
   --header 'X-Dialect-Client-Key: YOUR_CLIENT_KEY' \
-  --header 'Content-Type: application/json' \
-  --data '{
-    "appId": "YOUR_APP_ID"
-  }'
+  --header 'Content-Type: application/json' 
 ```
-
-**Parameters:**
-
-- `appId`: (Optional) Your application's unique identifier. When specified, marks as read only notifications from that app.
 
 The response will be an empty JSON object indicating success:
 
