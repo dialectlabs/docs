@@ -64,6 +64,7 @@ First, request a message containing a nonce (a one-time value) that the user wil
 curl https://alerts-api.dial.to/v2/auth/solana/prepare \
   --request POST \
   --header 'Content-Type: application/json' \
+  --header 'X-Dialect-Client-Key: YOUR_CLIENT_KEY' \
   --data '{
   "walletAddress": "YOUR_WALLET_ADDRESS"
 }'
@@ -95,6 +96,7 @@ After obtaining the signature, send it back to the server for verification:
 curl https://alerts-api.dial.to/v2/auth/solana/verify \
  --request POST \
  --header 'Content-Type: application/json' \
+ --header 'X-Dialect-Client-Key: YOUR_CLIENT_KEY' \
  --data '{
    "message": "Sign this message to authenticate. Nonce: 1638471298347",
    "signature": "WALLET_SIGNATURE"
@@ -124,7 +126,8 @@ To ensure that a user is authenticated and can receive notifications, you can us
 ```shell
 curl https://alerts-api.dial.to/v2/auth \
   --request GET \
-  --header 'Authorization: Bearer YOUR_AUTH_TOKEN'
+  --header 'Authorization: Bearer YOUR_AUTH_TOKEN' \
+  --header 'X-Dialect-Client-Key: YOUR_CLIENT_KEY'
 ```
 
 This endpoint will either return a 401 error, if user is unauthenticated or the wallet address if authentication was
@@ -147,6 +150,7 @@ In addition to push notifications, users can also subscribe to receive in-app al
 curl https://alerts-api.dial.to/v2/subscribe \
   --request POST \
   --header 'Authorization: Bearer YOUR_AUTH_TOKEN' \
+  --header 'X-Dialect-Client-Key: YOUR_CLIENT_KEY' \
   --header 'Content-Type: application/json' \
   --data '{
     "appId": "YOUR_APP_ID"
@@ -209,6 +213,7 @@ Before subscribing, you can optionally verify that the user is properly [authent
 curl https://alerts-api.dial.to/v2/push/subscribe \
  --request POST \
  --header 'Authorization: Bearer YOUR_AUTH_TOKEN' \
+ --header 'X-Dialect-Client-Key: YOUR_CLIENT_KEY' \
  --header 'Content-Type: application/json' \
  --data '{
    "appId": "YOUR_APP_ID",
@@ -219,9 +224,15 @@ curl https://alerts-api.dial.to/v2/push/subscribe \
 
 **Parameters:**
 
-- `⁠appId`: Your application's unique identifier (provided by Dialect)
-- `⁠deviceId`: (Optional) Identifier for the user's device
-- `⁠fcmToken`: Firebase Cloud Messaging token from the [FCM SDK](https://firebase.google.com/docs/cloud-messaging)
+- `appId`: (Optional) Your application's unique identifier. When not specified, you must include the X-Dialect-Client-Key header.
+- `deviceId`: (Optional) Identifier for the user's device
+- `fcmToken`: Firebase Cloud Messaging token from the [FCM SDK](https://firebase.google.com/docs/cloud-messaging)
+
+:::caution Important Notes
+- If you do not specify an `appId`, you MUST include the `X-Dialect-Client-Key` header to identify your client application.
+- We recommend always including the `X-Dialect-Client-Key` header in all API calls.
+- You can request a client key from Dialect if you don't have one.
+::: 
 
 The subscription process associates the user's wallet address with their device, allowing your application to send
 targeted push notifications to this specific device.
@@ -262,6 +273,7 @@ sequenceDiagram
 curl https://alerts-api.dial.to/v2/push/unsubscribe \
  --request POST \
  --header 'Authorization: Bearer YOUR_AUTH_TOKEN' \
+ --header 'X-Dialect-Client-Key: YOUR_CLIENT_KEY' \
  --header 'Content-Type: application/json' \
  --data '{
    "appId": "YOUR_APP_ID",
@@ -272,9 +284,15 @@ curl https://alerts-api.dial.to/v2/push/unsubscribe \
 
 The unsubscribe endpoint requires the same parameters as the subscribe endpoint:
 
-- `⁠appId`: Your application's unique identifier (provided by Dialect)
-- `⁠deviceId`: (Optional) Identifier for the user's device
-- `⁠fcmToken`: Firebase Cloud Messaging token from the [FCM SDK](https://firebase.google.com/docs/cloud-messaging)
+- `appId`: (Optional) Your application's unique identifier. When not specified, you must include the X-Dialect-Client-Key header.
+- `deviceId`: (Optional) Identifier for the user's device
+- `fcmToken`: Firebase Cloud Messaging token from the [FCM SDK](https://firebase.google.com/docs/cloud-messaging)
+
+:::caution Important Notes
+- If you do not specify an `appId`, you MUST include the `X-Dialect-Client-Key` header to identify your client application.
+- We recommend always including the `X-Dialect-Client-Key` header in all API calls.
+- You can request a client key from Dialect if you don't have one.
+::: 
 
 After unsubscribing, the device will no longer receive push notifications from your application.
 
