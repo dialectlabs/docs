@@ -75,6 +75,15 @@ const config: Config = {
         sidebarPath: "./sidebarsApi.ts",
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "sbl",
+        path: "docs/sbl",
+        routeBasePath: "sbl",
+        sidebarPath: "./sidebarsSbl.ts",
+      },
+    ],
     // [
     //   "docusaurus-plugin-openapi-docs",
     //   {
@@ -141,6 +150,13 @@ const config: Config = {
           position: "left",
         },
         {
+          type: "doc",
+          docId: "index",
+          docsPluginId: "sbl",
+          label: "SBL",
+          position: "left",
+        },
+        {
           href: "https://github.com/dialectlabs",
           label: "GitHub",
           position: "right",
@@ -164,6 +180,10 @@ const config: Config = {
             {
               label: "API",
               to: "/api",
+            },
+            {
+              label: "SBL",
+              to: "/sbl",
             },
           ],
         },

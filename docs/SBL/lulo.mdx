@@ -1,0 +1,197 @@
+---
+title: Lulo
+---
+
+import ApiCodeTabs from '@site/src/components/ApiCodeTabs';
+
+# Lulo
+
+Lulo is a stablecoin savings platform that optimizes your yield across the best DeFi opportunities. It continuously monitors rates, reallocates funds, and offers built-in protection to make DeFi safer and easier to use.
+
+## Portfolio
+
+### Deposit (classic)
+
+Description: Deposit funds to Lulo.
+
+
+#### GET Request
+- Blink GET API URL: `https://blink.lulo.fi/actions?symbol={symbol}`
+    
+    Parameters:
+    
+    - `symbol`—Symbol of the token to deposit, e.g. `USDC`
+
+##### Example
+
+<ApiCodeTabs
+  title="GET Example"
+  getUrl="https://blink.lulo.fi/actions"
+  getParams={{ symbol: "USDC" }}
+/>
+
+#### POST Request    
+- Blink POST API URL: `https://blink.lulo.fi/actions?amount={amount}&symbol={symbol}`
+    
+    Parameters:
+    
+    - `symbol`—Symbol of the token to deposit, e.g. `USDC`
+    - `amount`—Amount of the token to deposit, e.g. `100`
+
+##### Example
+
+<ApiCodeTabs
+  title="POST Example"
+  postUrl="https://blink.lulo.fi/actions"
+  postParams={{ amount: "100", symbol: "USDC" }}
+  postBody={{
+    account: "6JpNV6DK88auwzKVizdeT4Bw3D44sam5GqjcPCJ7y176",
+    type: "transaction"
+  }}
+/>
+
+### Withdraw (classic)
+
+Description: Withdraw funds from Lulo. 
+ 
+#### GET Request
+- Blink GET API URL: `https://lulo.dial.to/api/actions/withdraw/{symbol}`
+    
+    Parameters:
+    
+    - `symbol`—Symbol of the token to withdraw, e.g. `USDC`
+
+##### Example
+
+<ApiCodeTabs
+  title="GET Example"
+  getUrl="https://lulo.dial.to/api/actions/withdraw/USDC"
+/>
+
+#### POST Request    
+- Blink POST API URL: `https://lulo.dial.to/api/actions/withdraw/{symbol}/{amount}`
+    
+    Parameters:
+    
+    - `symbol`—Symbol of the token to deposit, e.g. `USDC`
+    - `amount`—Amount of the token to deposit, e.g. `100`
+
+##### Example
+
+<ApiCodeTabs
+  title="POST Example"
+  postUrl="https://lulo.dial.to/api/actions/withdraw/USDC/1"
+  postBody={{
+    account: "DUCKmhqoQi26MJ4yWbogEHqN1gs8sZajmBsg9TGnNXq",
+    type: "transaction"
+  }}
+/>
+
+### Deposit - Boosted & Protected (Coming Soon)
+
+Description: Deposit funds to Lulo (supports boosted and protected)
+ 
+
+#### GET Request
+- Blink GET API URL: `https://lulo.dial.to/deposit`
+    
+    No parameters. Only supports USDC.
+
+##### Example
+
+<ApiCodeTabs
+  title="GET Example"
+  getUrl="https://lulo.dial.to/deposit"
+/>
+
+#### POST Request    
+- Blink POST API URL: `https://lulo.dial.to/deposit?mode={mode}&amount={amount}`
+    
+    Parameters:
+    
+    - `mode` — Specifies the mode (Boosted or Protected), e.g., `boosted`
+    - `amount`— Amount of the token to deposit, e.g. `100`
+
+##### Example
+
+<ApiCodeTabs
+  title="POST Example"
+  postUrl="https://lulo.dial.to/deposit"
+  postParams={{ mode: "boosted", amount: "100" }}
+  postBody={{
+    account: "<user-pubkey>",
+    type: "transaction"
+  }}
+/>
+
+### Withdraw - Boosted & Protected (Coming Soon)
+
+Description: Withdraw funds from Lulo (supports boosted and protected)
+
+
+
+#### GET Request
+- Blink GET API URL: `https://lulo.dial.to/withdraw`
+    
+    No parameters. Only supports USDC.
+
+##### Example
+
+<ApiCodeTabs
+  title="GET Example"
+  getUrl="https://lulo.dial.to/withdraw"
+/>
+
+#### POST Request    
+- Blink POST API URL: `https://lulo.dial.to/withdraw?mode={mode}&amount={amount}`
+    
+    Parameters:
+    
+    - `mode` — Specifies the mode (Boosted or Protected), e.g., `boosted`
+    - `amount`— Amount of the token to deposit, e.g. `100`
+
+##### Example
+
+<ApiCodeTabs
+  title="POST Example"
+  postUrl="https://lulo.dial.to/withdraw"
+  postParams={{ mode: "boosted", amount: "100" }}
+  postBody={{
+    account: "<user-pubkey>",
+    type: "transaction"
+  }}
+/>
+
+### Claim - Boosted (Coming Soon)
+
+Description: Claim funds from Lulo's Boosted position once cooldown period has ended
+
+
+
+#### GET Request
+- Blink GET API URL: `https://lulo.dial.to/claim`
+    
+    No parameters. Only supports USDC.
+
+##### Example
+
+<ApiCodeTabs
+  title="GET Example"
+  getUrl="https://lulo.dial.to/claim"
+/>
+
+#### POST Request    
+- Blink POST API URL: `https://lulo.dial.to/claim`
+    
+    No Parameters.
+
+##### Example
+
+<ApiCodeTabs
+  title="POST Example"
+  postUrl="https://lulo.dial.to/claim"
+  postBody={{
+    account: "<user-pubkey>",
+    type: "transaction"
+  }}
+/>
