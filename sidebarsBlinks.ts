@@ -100,6 +100,11 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "blinks-provider/advanced/metadata",
+          label: "Metadata",
+        },
+        {
+          type: "doc",
           id: "blinks-provider/advanced/action-chaining",
           label: "Action Chaining",
         },
