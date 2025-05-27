@@ -165,6 +165,10 @@ const config: Config = {
               label: "API",
               to: "/api",
             },
+            {
+              label: "SBL",
+              href: "https://sbl.dial.to",
+            },
           ],
         },
 
