@@ -15,6 +15,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "link",
+      href: "https://sbl.dial.to",
+      label: "🔥 Standard Blinks Library",
+    },
+    {
+      type: "link",
       href: "/blinks/blinks-client/integrate",
       label: "Integrate Blinks",
     },

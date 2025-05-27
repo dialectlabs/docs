@@ -61,6 +61,11 @@ const sidebars: SidebarsConfig = {
       id: "blinks-client/measure/index",
     },
     {
+      type: "link",
+      href: "https://sbl.dial.to",
+      label: "Standard Blinks Library (SBL)",
+    },
+    {
       type: "html",
       value: "PROVIDER (API)",
       className: "sidebar-title",
@@ -141,6 +146,7 @@ const sidebars: SidebarsConfig = {
       value: "MORE",
       className: "sidebar-title",
     },
+
     {
       type: "html",
       value: `
@@ -159,7 +165,6 @@ const sidebars: SidebarsConfig = {
         `,
       className: "sidebar-social",
     },
-
     {
       type: "html",
       value: `
@@ -168,6 +173,11 @@ const sidebars: SidebarsConfig = {
           </a>
         `,
       className: "sidebar-social",
+    },
+    {
+      type: "link",
+      href: "https://sbl.dial.to",
+      label: "SBL",
     },
   ],
 };
