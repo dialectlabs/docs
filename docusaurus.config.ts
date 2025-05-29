@@ -73,24 +73,36 @@ const config: Config = {
         path: "docs/api",
         routeBasePath: "api",
         sidebarPath: "./sidebarsApi.ts",
+        docItemComponent: "@theme/ApiItem",
       },
     ],
-    // [
-    //   "docusaurus-plugin-openapi-docs",
-    //   {
-    //     id: "api", // plugin id
-    //     docsPluginId: "classic", // configured for preset-classic
-    //     config: {
-    //       "blink-api": {
-    //         specPath: "https://api.dial.to/openapi",
-    //         outputDir: "docs/blinks/blinks-client/integrate/headless/api-docu",
-    //         sidebarOptions: {
-    //           groupPathsBy: "tag",
-    //         },
-    //       } satisfies OpenApiPlugin.Options,
-    //     },
-    //   },
-    // ],
+    [
+      'docusaurus-plugin-openapi-docs',
+      {
+        id: 'api-specs',
+        docsPluginId: 'api',
+        config: {
+          blinks: {
+            specPath: 'openapi/blinks.json',
+            outputDir: 'docs/api/blinks',
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+              categoryLinkSource: 'tag',
+              sidebarCollapsed: false,
+            },
+          },
+          alerts: {
+            specPath: 'openapi/alerts.json',
+            outputDir: 'docs/api/alerts',
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+              categoryLinkSource: 'tag',
+              sidebarCollapsed: false,
+            },
+          },
+        },
+      },
+    ],
   ],
   themes: ["docusaurus-theme-openapi-docs", "@docusaurus/theme-mermaid"],
 
@@ -254,6 +266,92 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    api: {
+      // Configure code samples for API documentation
+      authPersistance: 'localStorage',
+      // Configure which programming languages to show in code samples
+      codeSamples: {
+        languages: [
+          {
+            lang: 'curl',
+            label: 'cURL',
+            source: 'curl',
+          },
+          {
+            lang: 'javascript',
+            label: 'JavaScript',
+            source: 'javascript',
+          },
+          {
+            lang: 'nodejs',
+            label: 'Node.js',
+            source: 'nodejs',
+          },
+          {
+            lang: 'python',
+            label: 'Python',
+            source: 'python',
+          },
+          {
+            lang: 'rust',
+            label: 'Rust',
+            source: 'rust',
+          },
+          {
+            lang: 'kotlin',
+            label: 'Kotlin',
+            source: 'kotlin',
+          },
+          {
+            lang: 'swift',
+            label: 'Swift',
+            source: 'swift',
+          },
+        ],
+      },
+    },
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
+    },
+    languageTabs: [
+      {
+        highlight: "bash",
+        language: "curl",
+        logoClass: "bash",
+      },
+      {
+        highlight: "javascript",
+        language: "javascript",
+        logoClass: "javascript",
+      },
+      {
+        highlight: "javascript",
+        language: "nodejs",
+        logoClass: "nodejs",
+      },
+      {
+        highlight: "python",
+        language: "python",
+        logoClass: "python",
+      },
+      {
+        highlight: "rust",
+        language: "rust",
+        logoClass: "rust",
+      },
+      {
+        highlight: "kotlin",
+        language: "kotlin",
+        logoClass: "kotlin",
+      },
+      {
+        highlight: "swift",
+        language: "swift",
+        logoClass: "swift",
+      },
+    ],
   } satisfies Preset.ThemeConfig,
 };
 
