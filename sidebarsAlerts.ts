@@ -99,8 +99,13 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "doc",
-      id: "index",
+      id: "receive/index",
       label: "Introduction",
+    },
+    {
+      type: "doc",
+      id: "receive/user-subscription",
+      label: "User Subscription Management",
     },
     {
       type: "category",
@@ -129,6 +134,11 @@ const sidebars: SidebarsConfig = {
           dirName: "receive/sdk",
         },
       ],
+    },
+    {
+      type: "doc",
+      id: "receive/mobile",
+      label: "Mobile Integration",
     },
     {
       type: "doc",

@@ -26,10 +26,6 @@ const config: Config = {
       {
         docs: false,
         blog: false,
-        gtag: {
-          trackingID: "G-0F44EN78QZ",
-          anonymizeIP: true,
-        },
         theme: {
           customCss: "./src/css/custom.css",
         },
@@ -38,6 +34,13 @@ const config: Config = {
   ],
 
   plugins: [
+    [
+      "@docusaurus/plugin-google-gtag",
+      {
+        trackingID: "G-0F44EN78QZ",
+        anonymizeIP: true,
+      },
+    ],
     [
       "@docusaurus/plugin-content-docs",
       {
