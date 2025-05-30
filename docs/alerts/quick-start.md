@@ -1,0 +1,279 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Quick Start
+
+Get your first notification working in under 15 minutes. This guide walks you through the complete flow from dashboard registration to sending your first notification to a user's wallet.
+
+## Video Tutorial
+
+Watch the complete walkthrough to see exactly how it works:
+
+<iframe 
+  width="100%" 
+  height="400" 
+  src="https://www.youtube.com/embed/aPLaXqEkzJY" 
+  title="Dialect Notifications Tutorial" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen>
+</iframe>
+
+**Video Chapters:**
+- [00:00](https://youtu.be/aPLaXqEkzJY?t=0) Send your first alert in 15 minutes
+- [00:25](https://youtu.be/aPLaXqEkzJY?t=25) Prerequisites
+- [03:13](https://youtu.be/aPLaXqEkzJY?t=193) Register your dApp
+- [05:37](https://youtu.be/aPLaXqEkzJY?t=337) Setup a clean project
+- [07:36](https://youtu.be/aPLaXqEkzJY?t=456) Implementation
+- [13:38](https://youtu.be/aPLaXqEkzJY?t=818) Signup for messages
+- [14:55](https://youtu.be/aPLaXqEkzJY?t=895) Send message to a wallet
+
+## What You'll Build
+
+By the end of this guide, you'll have:
+- ✅ A registered dApp with Dialect
+- ✅ A working notification bell in your React app  
+- ✅ A user subscribed to notifications
+- ✅ Your first notification sent and received
+
+**Time required:** ~15 minutes
+
+## The Web3 Challenge
+
+In web3, users connect with cryptic wallet addresses instead of emails. This makes it challenging to reach your users - but Dialect solves this by letting you send notifications directly to wallet addresses, with delivery via in-app notifications, email, Telegram, and push notifications.
+
+## Prerequisites
+
+- **Fresh Solana Wallet**: Create a new wallet specifically for your dApp registration (keep the private key secure)
+- **Development Environment**: Node.js 16+ installed
+- **Basic Knowledge**: React components and wallet connections
+
+## Step 1: Register Your dApp (3 minutes)
+
+### Create a New Wallet
+
+**Important**: Create a dedicated wallet for your dApp registration. This keeps your app's identity separate from your personal wallet and provides better security.
+
+**In your Solana wallet app:**
+1. **Create a new wallet** (most wallet apps have an "Add Wallet" or "+" option)
+2. **Name it** something like "My App Notifications" 
+3. **Save the recovery phrase** securely
+4. **Copy the public key** - you'll need this later for your React component
+
+
+### Connect and Register
+
+1. **Visit**: [https://dashboard.dialect.to/alerts](https://dashboard.dialect.to/alerts)
+2. **Click**: "Alerts" in the left sidebar
+3. **Click**: "Guide" tab (don't get confused by "Compose")
+4. **Connect**: Your **new** wallet (not your main wallet)
+5. **Sign**: The message to authenticate
+
+### Complete Registration
+
+Fill out your dApp information:
+- **Project Logo**: Upload your app's logo
+- **Project Name**: Your application name
+- **Description**: Brief description of your app
+
+Click **"Register"** and wait for the ✅ confirmation.
+
+### Save Your dApp Address
+
+**Important**: Copy your dApp address from the bottom-left corner (click "Copy Address"). This should match the public key of the wallet you just created.
+
+```bash
+# This is your dApp's public key - save it!
+DAPP_ADDRESS=5XCdQVqopjAoVkNhkXWHmeHNhRS5bPiATUULy8FHDySX
+```
+
+**Note**: This address will be used to initialize the Dialect SDK in your React component (Step 3).
+
+## Step 2: Set Up Your Project (3 minutes)
+
+### Clone the Scaffold
+
+We'll start with a fresh project using the Solana scaffold:
+
+```bash
+# Clone the scaffold
+npx create-blinks-app
+
+# Choose your framework when prompted:
+# - Blockchain: Solana
+# - Project name: alerts-tutorial (or choose your preferred name)
+
+# Navigate to the project
+cd alerts-tutorial
+
+# Start development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to verify your scaffold is running correctly.
+
+### Install Dialect Packages
+
+<Tabs>
+<TabItem value="npm" label="npm">
+
+```bash
+npm install @dialectlabs/react-ui @dialectlabs/react-sdk-blockchain-solana
+```
+
+</TabItem>
+<TabItem value="yarn" label="yarn">
+
+```bash
+yarn add @dialectlabs/react-ui @dialectlabs/react-sdk-blockchain-solana
+```
+
+</TabItem>
+</Tabs>
+
+## Step 3: Add Notification Bell (4 minutes)
+
+### Create Notification Component
+
+Create a new file `src/app/components/dialect/DialectNotificationComponent.tsx`:
+
+```tsx
+"use client";
+
+import "@dialectlabs/react-ui/index.css";
+import { DialectSolanaSdk } from "@dialectlabs/react-sdk-blockchain-solana";
+import { NotificationsButton } from "@dialectlabs/react-ui";
+
+// Replace with your actual dApp address from Step 1
+const DAPP_ADDRESS = "5XCdQVqopjAoVkNhkXWHmeHNhRS5bPiATUULy8FHDySX";
+
+export const DialectNotificationComponent = () => {
+  return (
+    <DialectSolanaSdk
+      dappAddress={DAPP_ADDRESS}
+      config={{
+        environment: "production",
+      }}
+    >
+      <NotificationsButton />
+    </DialectSolanaSdk>
+  );
+};
+```
+
+### Add to Your Navbar
+
+Add the notification bell to your app's navbar. Open `src/app/components/navbar.tsx` and update it:
+
+```tsx
+// Add this import at the top with the other imports
+import { DialectNotificationComponent } from "@/app/components/dialect/DialectNotificationComponent";
+
+// In the Desktop Navigation section, add the component before WalletMultiButton:
+<div className="hidden md:flex items-center gap-4">
+  <div className="flex items-center gap-3">
+    {navBarLinks.map((link) => (
+      <MenuButton
+        key={link.text}
+        logoName={link.logoName}
+        text={link.text}
+        href={link.href}
+      />
+    ))}
+  </div>
+  <DialectNotificationComponent />
+  <WalletMultiButton />
+</div>
+
+// In the Mobile Navigation section, add it next to the burger menu:
+<button
+  className="md:hidden p-2 flex items-center gap-2"
+  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+  aria-label="Toggle menu"
+>
+  <DialectNotificationComponent />
+  <div className="w-6 h-6 flex flex-col justify-center">
+    <span className={`block w-full h-0.5 bg-white mb-1 transition-transform ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+    <span className={`block w-full h-0.5 bg-white mb-1 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+    <span className={`block w-full h-0.5 bg-white transition-transform ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+  </div>
+</button>
+```
+
+### Test the Component
+![Notification Component in Scaffold](../../static/img/alert-bell-saffold.png)
+
+Refresh your browser and you should see the notification bell next to your wallet button in the navbar.
+
+## Step 4: User Subscribes to Notifications (2 minutes)
+
+In the next step, your users need to opt-in into notifications:
+
+### Subscribe Process
+
+1. **Connect Wallet**: User connects their wallet to your app
+2. **Click Bell**: User clicks the notification bell
+3. **Setup Notifications**: Click "Set up notifications"  
+4. **Enable**: Make sure notifications are "turned on" (not off)
+5. **Choose Channels**: 
+   - ✅ **In-App**: Always enabled for wallet notifications
+   - 📧 **Email**: User can optionally add their email
+   - 📱 **Telegram**: User can optionally add their Telegram handle
+
+**Important**: The toggle must be "ON" for the user to receive notifications.
+
+## Step 5: Send Your First Notification (3 minutes)
+
+Now send a notification using the dashboard:
+
+### Using the Dashboard
+
+1. **Go back to**: [https://dashboard.dialect.to/alerts](https://dashboard.dialect.to/alerts)
+2. **Click**: "Compose" tab
+3. **You'll see**: "1 subscriber" (the user who just signed up)
+4. **Write your message**:
+   - **Title**: "🎉 Welcome to My App!"
+   - **Body**: "This is your first notification from [Your App Name]"
+5. **Click**: "Send"
+
+### Verify It Works
+
+Go back to your app and:
+- The notification bell should show a green dot (unread notification)
+- Click the bell to see your message: "Welcome to My App!"
+- The message shows "This is your first notification..."
+
+**🎉 Congratulations! You've sent your first notification!**
+
+## Troubleshooting
+
+### ❌ "No subscribers found"
+- Make sure the user clicked the bell and enabled notifications
+- Check that the toggle is "ON" in the notification settings
+
+### ❌ "Invalid client key"  
+- Verify you copied the client key correctly from the dashboard
+- Make sure you're using the production key for live apps
+
+### ❌ "Component not rendering"
+- Ensure you imported the CSS: `import "@dialectlabs/react-ui/index.css"`
+- Check that your dApp address is correct
+- Verify wallet connection is working
+
+### ❌ "User not receiving notifications"
+- User must connect wallet and enable notifications first
+- Check dashboard analytics to see delivery status
+- Verify the target wallet address is correct
+
+
+## Learn More
+
+- **[Sending Guide](./send)** - Programmatic sending patterns and automation  
+- **[Receiving Guide](./receive)** - Advanced UI components and customization
+- **[API Reference](../api)** - Complete API documentation
+
+**🎉 You're all set!** You now have notifications working in your app. Your users can receive important updates directly in their wallets, and you can reach them programmatically from your backend.
