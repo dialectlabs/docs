@@ -26,7 +26,7 @@ Watch the complete walkthrough to see exactly how it works:
 **Video Chapters:**
 - [00:00](https://youtu.be/aPLaXqEkzJY?t=0) Send your first alert in 15 minutes
 - [00:25](https://youtu.be/aPLaXqEkzJY?t=25) Prerequisites
-- [03:13](https://youtu.be/aPLaXqEkzJY?t=193) Register your dApp
+- [03:13](https://youtu.be/aPLaXqEkzJY?t=193) Register your app
 - [05:37](https://youtu.be/aPLaXqEkzJY?t=337) Setup a clean project
 - [07:36](https://youtu.be/aPLaXqEkzJY?t=456) Implementation
 - [13:38](https://youtu.be/aPLaXqEkzJY?t=818) Signup for messages
@@ -35,7 +35,7 @@ Watch the complete walkthrough to see exactly how it works:
 ## What You'll Build
 
 By the end of this guide, you'll have:
-- ✅ A registered dApp with Dialect
+- ✅ A registered app with Dialect
 - ✅ A working notification bell in your React app  
 - ✅ A user subscribed to notifications
 - ✅ Your first notification sent and received
@@ -48,15 +48,17 @@ In web3, users connect with cryptic wallet addresses instead of emails. This mak
 
 ## Prerequisites
 
-- **Fresh Solana Wallet**: Create a new wallet specifically for your dApp registration (keep the private key secure)
+- **Fresh Solana Wallet**: Create a new wallet specifically for your app registration (keep the private key secure)
 - **Development Environment**: Node.js 16+ installed
 - **Basic Knowledge**: React components and wallet connections
 
-## Step 1: Register Your dApp (3 minutes)
+## Step 1: Register Your App (3 minutes)
 
 ### Create a New Wallet
 
-**Important**: Create a dedicated wallet for your dApp registration. This keeps your app's identity separate from your personal wallet and provides better security.
+:::warning Important
+Create a dedicated wallet for your app registration. This keeps your app's identity separate from your personal wallet and provides better security.
+:::
 
 **In your Solana wallet app:**
 1. **Create a new wallet** (most wallet apps have an "Add Wallet" or "+" option)
@@ -67,7 +69,7 @@ In web3, users connect with cryptic wallet addresses instead of emails. This mak
 
 ### Connect and Register
 
-1. **Visit**: [https://dashboard.dialect.to/alerts](https://dashboard.dialect.to/alerts)
+1. **Visit**: [https://dashboard.dialect.to/](https://dashboard.dialect.to)
 2. **Click**: "Alerts" in the left sidebar
 3. **Click**: "Guide" tab (don't get confused by "Compose")
 4. **Connect**: Your **new** wallet (not your main wallet)
@@ -75,20 +77,20 @@ In web3, users connect with cryptic wallet addresses instead of emails. This mak
 
 ### Complete Registration
 
-Fill out your dApp information:
+Fill out your app information:
 - **Project Logo**: Upload your app's logo
 - **Project Name**: Your application name
 - **Description**: Brief description of your app
 
 Click **"Register"** and wait for the ✅ confirmation.
 
-### Save Your dApp Address
+### Save Your app Address
 
-**Important**: Copy your dApp address from the bottom-left corner (click "Copy Address"). This should match the public key of the wallet you just created.
+**Important**: Copy your app address from the bottom-left corner (click "Copy Address"). This should match the public key of the wallet you just created.
 
 ```bash
-# This is your dApp's public key - save it!
-DAPP_ADDRESS=5XCdQVqopjAoVkNhkXWHmeHNhRS5bPiATUULy8FHDySX
+# This is your app's public key - save it!
+app_ADDRESS=5XCdQVqopjAoVkNhkXWHmeHNhRS5bPiATUULy8FHDySX
 ```
 
 **Note**: This address will be used to initialize the Dialect SDK in your React component (Step 3).
@@ -148,13 +150,13 @@ import "@dialectlabs/react-ui/index.css";
 import { DialectSolanaSdk } from "@dialectlabs/react-sdk-blockchain-solana";
 import { NotificationsButton } from "@dialectlabs/react-ui";
 
-// Replace with your actual dApp address from Step 1
-const DAPP_ADDRESS = "5XCdQVqopjAoVkNhkXWHmeHNhRS5bPiATUULy8FHDySX";
+// Replace with your actual app address from Step 1
+const app_ADDRESS = "5XCdQVqopjAoVkNhkXWHmeHNhRS5bPiATUULy8FHDySX";
 
 export const DialectNotificationComponent = () => {
   return (
     <DialectSolanaSdk
-      dappAddress={DAPP_ADDRESS}
+      appAddress={app_ADDRESS}
       config={{
         environment: "production",
       }}
@@ -232,7 +234,7 @@ Now send a notification using the dashboard:
 
 ### Using the Dashboard
 
-1. **Go back to**: [https://dashboard.dialect.to/alerts](https://dashboard.dialect.to/alerts)
+1. **Go back to**: [https://dashboard.dialect.to](https://dashboard.dialect.to)
 2. **Click**: "Compose" tab
 3. **You'll see**: "1 subscriber" (the user who just signed up)
 4. **Write your message**:
@@ -255,13 +257,9 @@ Go back to your app and:
 - Make sure the user clicked the bell and enabled notifications
 - Check that the toggle is "ON" in the notification settings
 
-### ❌ "Invalid client key"  
-- Verify you copied the client key correctly from the dashboard
-- Make sure you're using the production key for live apps
-
 ### ❌ "Component not rendering"
 - Ensure you imported the CSS: `import "@dialectlabs/react-ui/index.css"`
-- Check that your dApp address is correct
+- Check that your app address is correct
 - Verify wallet connection is working
 
 ### ❌ "User not receiving notifications"
