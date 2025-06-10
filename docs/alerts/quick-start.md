@@ -63,6 +63,10 @@ Create a dedicated wallet for your app registration. This keeps your app's ident
 
 ### Connect and Register
 
+<YouTubeVideo videoId="-ERmrJdMHeQ" />
+
+
+<br />
 1. **Visit**: [https://dashboard.dialect.to/](https://dashboard.dialect.to)
 2. **Click**: "Alerts" in the left sidebar
 3. **Click**: "Guide" tab (don't get confused by "Compose")

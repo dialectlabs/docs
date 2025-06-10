@@ -28,6 +28,11 @@ The **Compose** tab is where you send notifications to your subscribers using a 
 
 > 💡 **Pro Tip**: When sending to multiple channels, you can customize the message for each channel. For example, keep Telegram messages concise while making email content more detailed.
 
+
+ **Want to learn more about sending notifications using the dashboard?** Check out our [detailed guide in the send section](../send/dashboard.md).
+
+
+
 ### Guide
 
 The **Guide** tab walks you through the initial setup process:

@@ -132,7 +132,7 @@ const sidebars: SidebarsConfig = {
     {
       type: "doc",
       id: "send/dashboard",
-      label: "Dashboard Alerts",
+      label: "Dashboard",
     },
     {
       type: "html",

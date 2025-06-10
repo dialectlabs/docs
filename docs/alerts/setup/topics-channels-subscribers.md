@@ -13,6 +13,28 @@ Understanding the core concepts of Dialect's notification system: how topics org
 
 Dialect's notification system is built around three fundamental concepts that work together to create flexible, scalable notification experiences.
 
+### How It All Works Together
+
+```mermaid
+flowchart LR
+    User[👤 User] --> Subscribe[Subscribe to Topics]
+    Subscribe --> Choose[Choose Channels]
+    Choose --> Receive[📱 Receive Notifications]
+    
+    App[🏗️ Your App] --> Send[Send to Topics]
+    Send --> Deliver[📮 Dialect Delivers]
+    Deliver --> Receive
+    
+    style User fill:#e8f5e8
+    style App fill:#e1f5fe
+    style Receive fill:#f3e5f5
+```
+
+### The Flow
+1. **Users subscribe** to topics they care about and choose how they want to be notified
+2. **Your app sends** notifications to relevant topics when events happen  
+3. **Dialect delivers** those notifications to subscribers via their chosen channels
+
 ## Topics
 
 **Topics** define *what* notifications are about. They categorize and organize different types of alerts your application sends.
@@ -114,33 +136,13 @@ Instead of:
 
 ### Subscription Methods
 
-There are two ways to subscribe users to notifications:
+There are three ways to subscribe users to notifications:
 
 1. **React Widget**: Users can subscribe by clicking the notification bell and signing a message to verify their wallet ownership. This is the simplest way to get started and works well for most dapps. For more information checkout our [quickstart section](../quick-start#step-4-user-subscribes-to-notifications-2-minutes).
 
 2. **API Integration**: For wallet applications that can sign messages on behalf of users, we recommend using our API to programmatically subscribe users. This provides more control over the subscription flow and a smoother user experience.
 
-## How It All Works Together
-
-```mermaid
-flowchart LR
-    User[👤 User] --> Subscribe[Subscribe to Topics]
-    Subscribe --> Choose[Choose Channels]
-    Choose --> Receive[📱 Receive Notifications]
-    
-    App[🏗️ Your App] --> Send[Send to Topics]
-    Send --> Deliver[📮 Dialect Delivers]
-    Deliver --> Receive
-    
-    style User fill:#e8f5e8
-    style App fill:#e1f5fe
-    style Receive fill:#f3e5f5
-```
-
-**The Flow:**
-1. **Users subscribe** to topics they care about and choose how they want to be notified
-2. **Your app sends** notifications to relevant topics when events happen  
-3. **Dialect delivers** those notifications to subscribers via their chosen channels
+3. **SDK Integration**: Use our TypeScript/JavaScript SDK to programmatically manage subscriptions from your backend or frontend applications. This approach offers the most flexibility and is ideal for custom subscription flows and backend integrations. Learn more in our [SDK documentation](../integrate-inbox/sdk).
 
 ## Next Steps
 
