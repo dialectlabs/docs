@@ -41,8 +41,8 @@ Establish a direct line of communication to your users:
 Sending alerts can be achieved through multiple approaches, from simple no-code solutions to powerful programmatic integrations:
 
 **[Introduction](./send/index.md)** - Choose the best approach for your app:
-- **[REST API](./integrate-inbox/index.md)**: HTTP endpoints for basic notification sending from any language or platfor incl. mobile
-- **[React SDK](./integrate-inbox/sdk/index.md)**: Rich developer experience with type safety, helper functions, and UI components
+- **[REST API](./send/api/index.md)**: HTTP endpoints for basic notification sending from any language or platfor incl. mobile
+- **[React SDK](./send/sdk/index.md)**: Rich developer experience with type safety, helper functions, and UI components
 - **[Dashboard](./send/dashboard.md)**: No-code solution for marketing and announcements
 - **[Monitoring](./alerts-and-monitoring/index.md)**: Automated alerts based on blockchain events
 
