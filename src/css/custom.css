@@ -173,3 +173,8 @@
   display: flex;
   align-items: center;
 }
+
+/* Global image styling - rounded corners */
+img {
+  border-radius: 8px;
+}

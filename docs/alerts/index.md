@@ -5,7 +5,7 @@ sidebar_position: 1
 # Alerts
 
 :::info  Inbox Now Available!
-Our latest update introduces the [Inbox](./receive/inbox.md) feature, allowing users to receive notifications from multiple applications in a single feed. This brings a more streamlined experience for your users and enables wallet applications to show cross-app notifications.
+Our latest update introduces the [Inbox](./integrate-inbox/inbox.md) feature, allowing users to receive notifications from multiple applications in a single feed. This brings a more streamlined experience for your users and enables wallet applications to show cross-app notifications.
 :::
 
 **Get your users the notifications they need, when they need them.** Dialect Alerts is a notification infrastructure that powers messaging for over 30 of the most-loved apps and wallets across Solana, EVM, and Aptos.
@@ -38,12 +38,13 @@ Establish a direct line of communication to your users:
 
 ### Want to Send Alerts?
 
-Sending alerts can be achieved through multiple ways. We offer a Dashboard as a convenient, no-code solution as well as programmatic alerts all the way up to complex event detection and monitoring solutions.
+Sending alerts can be achieved through multiple approaches, from simple no-code solutions to powerful programmatic integrations:
 
 **[Introduction](./send/index.md)** - Choose the best approach for your app:
-- **[Programmatic](./send/programmatic/index.md)**: Full control with REST API or TypeScript SDK
-- **[Dashboard](./send/dashboard.md)**: No-code solution for marketing and announcements  
-- **[Monitoring](./send/monitoring/index.md)**: Automated alerts based on blockchain events
+- **[REST API](./integrate-inbox/index.md)**: HTTP endpoints for basic notification sending from any language or platfor incl. mobile
+- **[React SDK](./integrate-inbox/sdk/index.md)**: Rich developer experience with type safety, helper functions, and UI components
+- **[Dashboard](./send/dashboard.md)**: No-code solution for marketing and announcements
+- **[Monitoring](./alerts-and-monitoring/index.md)**: Automated alerts based on blockchain events
 
 ### Want to Receive Alerts?
 
@@ -51,12 +52,12 @@ Send your users the information they need when they need it. We recommend integr
 
 Have a look at our inbox that lets your users also receive notifications from other apps, so they don't have to leave your app to stay informed.
 
-**[Introduction](./receive/index.md)** - Build notification experiences for your users:
-- **[User Management](./receive/user-subscription.md)**: Subscription flows and preferences
-- **[API Integration](./receive/api/index.md)**: Custom notification interfaces
-- **[SDK Components](./receive/sdk/index.md)**: Pre-built React components
-- **[Mobile Integration](./receive/mobile.md)**: Push notifications for mobile apps
-- **[Inbox](./receive/inbox.md)**: Cross-app notification history
+**[Introduction](./integrate-inbox/index.md)** - Build notification experiences for your users:
+- **[User Management](./integrate-inbox/user-subscription.md)**: Subscription flows and preferences
+- **[API Integration](./integrate-inbox/api/index.md)**: Custom notification interfaces
+- **[SDK Components](./integrate-inbox/sdk/index.md)**: Pre-built React components
+- **[Mobile Integration](./integrate-inbox/mobile.md)**: Push notifications for mobile apps
+- **[Universal Inbox](./integrate-inbox/inbox.md)**: Cross-app notification history
 
 
 ## Questions? 

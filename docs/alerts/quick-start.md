@@ -4,26 +4,20 @@ sidebar_position: 2
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import YouTubeVideo from '@site/src/components/YouTubeVideo';
+
 
 # Quick Start
 
 Get your first notification working in under 15 minutes. This guide walks you through the complete flow from dashboard registration to sending your first notification to a user's wallet.
 
 ## Video Tutorial
+Watch the complete walkthrough to see exactly how it works.
 
-Watch the complete walkthrough to see exactly how it works:
+<YouTubeVideo videoId="aPLaXqEkzJY" />
 
-<iframe 
-  width="100%" 
-  height="400" 
-  src="https://www.youtube.com/embed/aPLaXqEkzJY" 
-  title="Dialect Notifications Tutorial" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen>
-</iframe>
 
-**Video Chapters:**
+### Chapters
 - [00:00](https://youtu.be/aPLaXqEkzJY?t=0) Send your first alert in 15 minutes
 - [00:25](https://youtu.be/aPLaXqEkzJY?t=25) Prerequisites
 - [03:13](https://youtu.be/aPLaXqEkzJY?t=193) Register your app
@@ -118,6 +112,8 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to verify your scaffold is running correctly.
 
+## Step 3: Add Notification Bell (4 minutes)
+
 ### Install Dialect Packages
 
 <Tabs>
@@ -137,13 +133,12 @@ yarn add @dialectlabs/react-ui @dialectlabs/react-sdk-blockchain-solana
 </TabItem>
 </Tabs>
 
-## Step 3: Add Notification Bell (4 minutes)
 
 ### Create Notification Component
 
 Create a new file `src/app/components/dialect/DialectNotificationComponent.tsx`:
 
-```tsx
+```tsx title="src/app/components/dialect/DialectNotificationComponent.tsx"
 "use client";
 
 import "@dialectlabs/react-ui/index.css";
@@ -169,11 +164,13 @@ export const DialectNotificationComponent = () => {
 
 ### Add to Your Navbar
 
-Add the notification bell to your app's navbar. Open `src/app/components/navbar.tsx` and update it:
+Add the notification bell to your app's navbar. 
 
-```tsx
+```tsx title="src/app/components/navbar.tsx"
 // Add this import at the top with the other imports
+// highlight-start
 import { DialectNotificationComponent } from "@/app/components/dialect/DialectNotificationComponent";
+// highlight-end
 
 // In the Desktop Navigation section, add the component before WalletMultiButton:
 <div className="hidden md:flex items-center gap-4">
@@ -187,7 +184,9 @@ import { DialectNotificationComponent } from "@/app/components/dialect/DialectNo
       />
     ))}
   </div>
+  // highlight-start
   <DialectNotificationComponent />
+  // highlight-end
   <WalletMultiButton />
 </div>
 
@@ -197,7 +196,10 @@ import { DialectNotificationComponent } from "@/app/components/dialect/DialectNo
   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
   aria-label="Toggle menu"
 >
+  // highlight-start
   <DialectNotificationComponent />
+  // highlight-end
+
   <div className="w-6 h-6 flex flex-col justify-center">
     <span className={`block w-full h-0.5 bg-white mb-1 transition-transform ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
     <span className={`block w-full h-0.5 bg-white mb-1 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
@@ -207,11 +209,13 @@ import { DialectNotificationComponent } from "@/app/components/dialect/DialectNo
 ```
 
 ### Test the Component
-![Notification Component in Scaffold](../../static/img/alert-bell-saffold.png)
+![Notification Component in Blinks Scaffold](../../static/img/alert-bell-saffold.png)
 
 Refresh your browser and you should see the notification bell next to your wallet button in the navbar.
 
 ## Step 4: User Subscribes to Notifications (2 minutes)
+
+<YouTubeVideo videoId="1JCFXwsgFq0" />
 
 In the next step, your users need to opt-in into notifications:
 
@@ -219,16 +223,14 @@ In the next step, your users need to opt-in into notifications:
 
 1. **Connect Wallet**: User connects their wallet to your app
 2. **Click Bell**: User clicks the notification bell
-3. **Setup Notifications**: Click "Set up notifications"  
-4. **Enable**: Make sure notifications are "turned on" (not off)
-5. **Choose Channels**: 
-   - ✅ **In-App**: Always enabled for wallet notifications
+3. **Sign message**: User signs a message to proof ownership
+4. **Choose additional Channels**: 
    - 📧 **Email**: User can optionally add their email
    - 📱 **Telegram**: User can optionally add their Telegram handle
 
-**Important**: The toggle must be "ON" for the user to receive notifications.
-
 ## Step 5: Send Your First Notification (3 minutes)
+
+<YouTubeVideo videoId="S_5YHtwkRFk" />
 
 Now send a notification using the dashboard:
 
@@ -243,6 +245,8 @@ Now send a notification using the dashboard:
 5. **Click**: "Send"
 
 ### Verify It Works
+
+![Notification received via React UI component](../../static/img/notif-received.png)
 
 Go back to your app and:
 - The notification bell should show a green dot (unread notification)
@@ -270,8 +274,10 @@ Go back to your app and:
 
 ## Learn More
 
-- **[Sending Guide](./send)** - Programmatic sending patterns and automation  
-- **[Receiving Guide](./receive)** - Advanced UI components and customization
-- **[API Reference](../api)** - Complete API documentation
+- **[Sending Guide](./send)** - Send alerts to your users either programmatic or by using or no-code Dashboard
+- **[Universal Inbox Guide](./integrate-inbox/index.md)** - Integrate an Inbox using APIs or advanced UI components
+- **[Event Detection and Monitoring](./alerts-and-monitoring/index.md)**: Use events to send notifications to your users
+- **[API Reference](../api)** - Get an overview of available API endpoints
+
 
 **🎉 You're all set!** You now have notifications working in your app. Your users can receive important updates directly in their wallets, and you can reach them programmatically from your backend.
