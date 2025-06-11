@@ -92,6 +92,14 @@ const dapp = await sdk.dapps.create({
 console.log('App registered successfully:', dapp);
 ```
 
+:::warning Security Best Practice
+**Always create a new wallet for each app.** Never reuse existing wallet keypairs from other applications or personal wallets. This ensures proper security isolation and prevents unauthorized access to your notification system.
+:::
+
+:::warning Secure Your Credentials
+Keep your `DIALECT_SDK_CREDENTIALS` secure. This is your app's private key and should never be exposed in client-side code or committed to version control.
+:::
+
 :::tip
 Dialect's database _never_ stores your app's private keys, only the public key.
 :::
