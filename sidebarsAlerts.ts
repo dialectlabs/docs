@@ -111,8 +111,8 @@ const sidebars: SidebarsConfig = {
     // },
     {
       type: "doc",
-      id: "integrate-inbox/unified-inbox",
-      label: "Unified Inbox",
+      id: "integrate-inbox/universal-inbox",
+      label: "Universal Inbox",
     },
     {
       type: "html",

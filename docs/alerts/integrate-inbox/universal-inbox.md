@@ -1,20 +1,20 @@
-# Unified Inbox
+# Universal Inbox
 
-The Unified Inbox represents the next evolution of messaging, transforming isolated app notifications into a shared, user-controlled communication layer across the entire ecosystem.
+The Universal Inbox represents the next evolution of messaging, transforming isolated app notifications into a shared, user-controlled communication layer across the entire ecosystem.
 
-## What is a Unified Inbox?
+## What is a Universal Inbox?
 
 Traditionally, each application maintains its own dedicated inbox for users. When you use Drift, you receive Drift notifications. When you use Bonk, you get Bonk alerts. Each app operates in isolation, creating fragmented communication experiences.
 
-The Unified Inbox breaks down these silos by creating a **shared notification feed** where users can opt-in to receive messages from multiple applications they care about. Instead of checking separate inboxes across different apps, users have one central place to see all their notifications.
+The Universal Inbox breaks down these silos by creating a **shared notification feed** where users can opt-in to receive messages from multiple applications they care about. Instead of checking separate inboxes across different apps, users have one central place to see all their notifications.
 
 ## How It Works
 
-The Unified Inbox builds directly on Dialect's existing notification infrastructure:
+The Universal Inbox builds directly on Dialect's existing notification infrastructure:
 
 ```mermaid
 graph TB
-    User[👤 User] --> Inbox[📥 Unified Inbox]
+    User[👤 User] --> Inbox[📥 Universal Inbox]
     
     subgraph "Subscribed Apps"
         App1[🏦 Drift<br/>Trading Alerts]
@@ -41,7 +41,7 @@ graph TB
 
 ## Building on Existing Infrastructure
 
-The Unified Inbox doesn't require new APIs or endpoints—it leverages the notification system you're already familiar with:
+The Universal Inbox doesn't require new APIs or endpoints—it leverages the notification system you're already familiar with:
 
 ### App Discovery & Subscription
 
@@ -89,7 +89,7 @@ For implementation details, see the [Push Notifications](./api/push-notification
 
 ## Implementation Strategy
 
-To support the Unified Inbox in your application:
+To support the Universal Inbox in your application:
 
 ### 1. App Registration
 Ensure your app is properly registered with Dialect so users can discover and subscribe to it. See the [App Registration guide](../setup/register-app.md).
@@ -126,11 +126,11 @@ Consider implementing actions that work across apps:
 
 ## Getting Started
 
-Ready to support the Unified Inbox? Start with these resources:
+Ready to support the Universal Inbox? Start with these resources:
 
 1. **[Authentication](./api/authentication.md)** - Set up user authentication for subscription management
 2. **[User Management](./user-management.md)** - Implement app discovery and subscription flows  
 3. **[Notifications](./api/notifications.md)** - Build the unified message feed
 4. **[Push Notifications](./api/push-notifications.md)** - Enable cross-app mobile notifications
 
-The Unified Inbox transforms Web3 from a collection of isolated apps into a connected ecosystem where users stay informed and engaged across their entire on-chain journey.
+The Universal Inbox transforms Web3 from a collection of isolated apps into a connected ecosystem where users stay informed and engaged across their entire on-chain journey.

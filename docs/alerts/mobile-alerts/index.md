@@ -44,9 +44,9 @@ The Mobile Alert Stack enhances existing channels by providing unified, multi-ch
 ### Cross-Platform Consistency
 The same notification system powers all channels, ensuring consistent messaging and user experience whether users receive alerts via push, email, or in-app notifications.
 
-## Integration with Unified Inbox
+## Integration with Universal Inbox
 
-The Mobile Alert Stack seamlessly integrates with the [Unified Inbox](../integrate-inbox/unified-inbox.md), enabling users to receive push notifications from multiple apps they've subscribed to—like Drift liquidation alerts while using Jupiter, or Bonk community updates while trading on Raydium.
+The Mobile Alert Stack seamlessly integrates with the [Universal Inbox](../integrate-inbox/universal-inbox.md), enabling users to receive push notifications from multiple apps they've subscribed to—like Drift liquidation alerts while using Jupiter, or Bonk community updates while trading on Raydium.
 
 ## Getting Started
 

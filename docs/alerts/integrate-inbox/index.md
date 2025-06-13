@@ -25,14 +25,14 @@ Direct API integration for maximum flexibility and control. Ideal for server-sid
 
 **[Get started with REST API →](./api/index.md)**
 
-### 🌐 Unified Inbox
+### 🌐 Universal Inbox
 Enable cross-app notifications where users can subscribe to multiple applications and receive all their notifications in one unified feed.
 
 - Subscribe to notifications from multiple apps (Drift, Bonk, Sanctum, etc.)
 - Single notification feed across the entire ecosystem
 - User-controlled cross-app messaging experience
 
-**[Learn about Unified Inbox →](./unified-inbox.md)**
+**[Learn about Universal Inbox →](./universal-inbox.md)**
 
 ## Key Features
 
@@ -78,12 +78,12 @@ All integration approaches build on the same user management system. Understandi
 2. **Review User Management**: Understand how subscriptions and channels work
 3. **Set Up Authentication**: Implement wallet-based user authentication
 4. **Build Notification Features**: Display notifications, manage subscriptions, handle push notifications
-5. **Consider Unified Inbox**: Enable cross-app notifications for enhanced user experience
+5. **Consider Universal Inbox**: Enable cross-app notifications for enhanced user experience
 
 ## What's Next?
 
 - **New to Dialect?** Start with [User Management](./user-management.md) to understand the foundation
 - **Building a React app?** Jump to [React Components](./sdk/index.md)
 - **Need API control?** Begin with [REST API](./api/index.md)
-- **Want cross-app notifications?** Explore [Unified Inbox](./unified-inbox.md)
+- **Want cross-app notifications?** Explore [Universal Inbox](./universal-inbox.md)
 

@@ -5,7 +5,7 @@ sidebar_position: 1
 # Alerts
 
 :::info  Inbox Now Available!
-Our latest update introduces the [Unified Inbox](./integrate-inbox/unified-inbox.md) feature, allowing users to receive notifications from multiple applications in a single feed. This brings a more streamlined experience for your users and enables wallet applications to show cross-app notifications.
+Our latest update introduces the [Universal Inbox](./integrate-inbox/universal-inbox.md) feature, allowing users to receive notifications from multiple applications in a single feed. This brings a more streamlined experience for your users and enables wallet applications to show cross-app notifications.
 :::
 
 **Get your users the notifications they need, when they need them.** Dialect Alerts is a notification infrastructure that powers messaging for over 30 of the most-loved apps and wallets across Solana, EVM, and Aptos.
@@ -56,7 +56,7 @@ Have a look at our inbox that lets your users also receive notifications from ot
 - **[User Management](./integrate-inbox/user-management.md)**: Subscription flows and preferences
 - **[API Integration](./integrate-inbox/api/index.md)**: Custom notification interfaces
 - **[SDK Components](./integrate-inbox/sdk/index.md)**: Pre-built React components
-- **[Unified Inbox](./integrate-inbox/unified-inbox.md)**: Cross-app notification history
+- **[Universal Inbox](./integrate-inbox/universal-inbox.md)**: Cross-app notification history
 
 
 ## Questions? 
