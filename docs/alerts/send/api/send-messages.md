@@ -9,7 +9,7 @@ Send notifications to your users through various channels using the Dialect REST
 :::warning Critical Requirement
 **Users must subscribe to your app before you can send them notifications.** If you try to send a message to an unsubscribed user, it will not be delivered.
 
-**Setting up user subscriptions:** See our **[User Management guide](../../integrate-inbox/api/user-management.md)** for implementation details.
+**Setting up user subscriptions:** See our **[User Management guide](../../integrate-inbox/user-management.md)** for implementation details.
 :::
 
 ## Prerequisites
@@ -18,7 +18,7 @@ Before sending messages, ensure you have completed these steps:
 
 1. **Authentication Setup**: Have your API key ready (see the [Authentication guide](./authentication.md) if you need to set this up)
 2. **App Registration**: Your app must be [registered](../../setup/register-app.md) with Dialect  
-3. **User Subscriptions**: Ensure your users have [subscribed](../../integrate-inbox/user-subscription.md) to receive notifications from your app
+3. **User Subscriptions**: Ensure your users have [subscribed](../../integrate-inbox/user-management.md) to receive notifications from your app
 
 ## Message Delivery Overview
 

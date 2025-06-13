@@ -12,7 +12,7 @@ Before sending messages, ensure you have completed these steps:
 
 1. **App Registration**: Register your app with Dialect (see the [registration guide](../../setup/register-app.md) if you need to set this up)
 2. **SDK Setup**: Initialize the Dialect SDK (see our [Setup & Configuration guide](./setup-configuration.md) if you haven't done this yet)
-3. **User Subscriptions**: Have users subscribed to your app (see our [User Management guide](./user-management.md) for subscription setup)
+3. **User Subscriptions**: Have users subscribed to your app (see our [User Management guide](../../integrate-inbox/user-management.md) for subscription setup)
 
 ## Message Delivery Overview
 
