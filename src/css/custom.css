@@ -42,19 +42,24 @@
 }
 
 .sidebar-social {
-  padding: 0px 12px; /* Reduced top/bottom padding */
+  padding: 0px 12px;
+  /* Reduced top/bottom padding */
 }
 
 .sidebar-social-link {
   display: flex;
   align-items: center;
-  padding: 8px 0px; /* Added padding to match sidebar items */
-  color: var(--ifm-menu-color); /* Use Docusaurus menu color variable */
+  padding: 8px 0px;
+  /* Added padding to match sidebar items */
+  color: var(--ifm-menu-color);
+  /* Use Docusaurus menu color variable */
   text-decoration: none;
   transition: background-color 0.2s;
   border-radius: 4px;
-  margin: 2px 0; /* Add small margin between links */
-  line-height: 1.25rem; /* Match Docusaurus line height */
+  margin: 2px 0;
+  /* Add small margin between links */
+  line-height: 1.25rem;
+  /* Match Docusaurus line height */
 }
 
 [data-theme="dark"] .sidebar-social-link {
@@ -72,8 +77,10 @@
 }
 
 .sidebar-social-link svg {
-  margin-right: 12px; /* Increased spacing between icon and text */
-  width: 20px; /* Slightly larger icons */
+  margin-right: 12px;
+  /* Increased spacing between icon and text */
+  width: 20px;
+  /* Slightly larger icons */
   height: 20px;
 }
 
@@ -89,4 +96,85 @@
 
 [data-theme="dark"] .sidebar-separator {
   background-color: var(--ifm-color-gray-800);
+}
+
+/* API Method badges in sidebar */
+.api-method {
+  position: relative;
+}
+
+.api-method::before {
+  content: attr(data-method);
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 35px;
+  text-align: center;
+}
+
+.api-method.get::before {
+  content: "GET";
+  background-color: #61affe;
+  color: white;
+}
+
+.api-method.post::before {
+  content: "POST";
+  background-color: #49cc90;
+  color: white;
+}
+
+.api-method.put::before {
+  content: "PUT";
+  background-color: #fca130;
+  color: white;
+}
+
+.api-method.delete::before {
+  content: "DELETE";
+  background-color: #f93e3e;
+  color: white;
+}
+
+.api-method.patch::before {
+  content: "PATCH";
+  background-color: #50e3c2;
+  color: white;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .api-method.get::before {
+  background-color: #4a90e2;
+}
+
+[data-theme="dark"] .api-method.post::before {
+  background-color: #39a870;
+}
+
+[data-theme="dark"] .api-method.put::before {
+  background-color: #e6941f;
+}
+
+[data-theme="dark"] .api-method.delete::before {
+  background-color: #e63946;
+}
+
+[data-theme="dark"] .api-method.patch::before {
+  background-color: #3ec9a7;
+}
+
+/* Ensure proper spacing in the sidebar */
+.theme-doc-sidebar-item-link {
+  display: flex;
+  align-items: center;
+}
+
+/* Global image styling - rounded corners */
+img {
+  border-radius: 8px;
 }
