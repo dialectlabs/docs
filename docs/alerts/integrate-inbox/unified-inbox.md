@@ -51,7 +51,7 @@ Users discover and subscribe to apps using the existing app management endpoints
 - **[POST /v2/subscribe](https://alerts-api.dial.to/docs#tag/subscriber/POST/v2/subscribe)**: Subscribe to notifications from specific apps
 - **[POST /v2/unsubscribe](https://alerts-api.dial.to/docs#tag/subscriber/POST/v2/unsubscribe)**: Unsubscribe from app notifications
 
-For implementation details, see the [User Management](./api/user-management.md) documentation.
+For implementation details, see the [User Management](./user-management.md) documentation.
 
 ### Unified Message History
 
@@ -128,9 +128,9 @@ Consider implementing actions that work across apps:
 
 Ready to support the Unified Inbox? Start with these resources:
 
-1. **[Authentication](./authentication.md)** - Set up user authentication for subscription management
+1. **[Authentication](./api/authentication.md)** - Set up user authentication for subscription management
 2. **[User Management](./user-management.md)** - Implement app discovery and subscription flows  
-3. **[Notifications](./notifications.md)** - Build the unified message feed
-4. **[Push Notifications](./push-notifications.md)** - Enable cross-app mobile notifications
+3. **[Notifications](./api/notifications.md)** - Build the unified message feed
+4. **[Push Notifications](./api/push-notifications.md)** - Enable cross-app mobile notifications
 
 The Unified Inbox transforms Web3 from a collection of isolated apps into a connected ecosystem where users stay informed and engaged across their entire on-chain journey.

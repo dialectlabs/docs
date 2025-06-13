@@ -150,4 +150,4 @@ Now that you understand the core concepts:
 
 1. **[Dashboard introduction](./dashboard-introduction)** - Learn to manage topics and subscribers
 2. **[Send your first alert](../send)** - Start sending notifications to subscribers
-3. **[Integrate an Inbox](../integrate-inbox/inbox.md)** - Receive alerts in your app
+3. **[Integrate a Unified Inbox](../integrate-inbox/unified-inbox.md)** - Receive alerts in your app

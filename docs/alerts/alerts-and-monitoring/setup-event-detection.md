@@ -263,7 +263,7 @@ ts-node ./your-client.ts
 ## Hosting Your Monitor
 
 ### Option 1: Use Your Existing Infrastructure
-If you already have a preferred hosting framework, you can simply deploy your monitor there and skip to setting up your [notification UI/UX](../advancing-react-notifications/).
+If you already have a preferred hosting framework, you can simply deploy your monitor there and skip to setting up your [notification UI/UX](../integrate-inbox/).
 
 ### Option 2: Use Dialect Monitoring Service
 Dialect offers an opinionated, standardized way of hosting monitors within a Nest.js server implementation.
@@ -311,9 +311,9 @@ Built-in rate limiting prevents notification spam while ensuring important alert
 
 Once your monitor is built and hosted:
 
-1. **[Set up notification UI/UX](../advancing-react-notifications/)** - Create user interfaces for subscription management
-2. **[Configure topics and channels](../../setup/topics-channels-subscribers.md)** - Organize your notifications
-3. **[Send additional alerts](../../send/)** - Combine monitoring with manual alert sending
+1. **[Set up notification UI/UX](../integrate-inbox/)** - Create user interfaces for subscription management
+2. **[Configure topics and channels](../setup/topics-channels-subscribers.md)** - Organize your notifications
+3. **[Send additional alerts](../send/)** - Combine monitoring with manual alert sending
 
 ## Contributing
 

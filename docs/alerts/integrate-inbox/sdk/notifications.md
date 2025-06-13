@@ -31,7 +31,7 @@ Before implementing the Notifications component, ensure you have completed:
 
 - **App Registration**: Your app must be registered with Dialect ([registration guide](../../setup/register-app.md))
 - **SDK Setup**: Configure the Dialect React SDK ([Setup & Configuration guide](./setup-configuration.md))
-- **User Management Understanding**: Familiarize yourself with subscriptions and channels ([User Management guide](./user-management.md))
+- **User Management Understanding**: Familiarize yourself with subscriptions and channels ([User Management guide](../user-management.md))
 
 ## Basic Usage
 

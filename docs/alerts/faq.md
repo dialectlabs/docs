@@ -35,7 +35,7 @@ Currently **Solana** and **APTOS** with plans to support EVM. The system is desi
 1. **[Register your app](./setup/register-app)** - Get API credentials
 2. **[Create topics](./setup/topics-channels-subscribers)** - Define notification types
 3. **[Send notifications](./send)** - Integrate sending in your app
-4. **[Add subscription UI](./receive)** - Let users manage preferences
+4. **[Add subscription UI](./integrate-inbox/)** - Let users manage preferences
 
 The [Quick Start guide](./quick-start) walks through this in ~10 minutes.
 

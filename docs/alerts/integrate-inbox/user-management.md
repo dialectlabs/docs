@@ -13,7 +13,7 @@ Manage user subscriptions, notification preferences, channel configurations, and
 
 Before managing users, ensure you have completed these steps:
 
-1. **App Registration**: Register your app with Dialect (see the [registration guide](../../setup/register-app.md) if you need to set this up)
+1. **App Registration**: Register your app with Dialect (see the [registration guide](../setup/register-app.md) if you need to set this up)
 
 
 ## User Management Workflow Overview
@@ -1005,7 +1005,7 @@ This returns apps with their topics and subscription status:
 
 Now that you understand user management concepts, you're ready to implement notification components:
 
-1. **[NotificationsButton](./notifications-button.md)** - Complete done-for-you solution
-2. **[Notifications](./notifications.md)** - Standalone component for custom integration
+1. **[NotificationsButton](./sdk/notifications-button.md)** - Complete done-for-you solution
+2. **[Notifications](./sdk/notifications.md)** - Standalone component for custom integration
 
 The components handle all the user management workflows described above, providing your users with intuitive interfaces for managing their notification preferences.

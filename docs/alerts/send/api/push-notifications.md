@@ -102,4 +102,4 @@ const pushWithData = {
 
 For full push notification setup including Firebase configuration, mobile app integration, user subscription management, and message handling, see:
 
-**[Push Notifications in Inbox Integration →](../../integrate-inbox/push-notifications.md)**
+**[Push Notifications in Inbox Integration →](../../integrate-inbox/api/push-notifications.md)**
