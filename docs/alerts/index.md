@@ -8,7 +8,7 @@ sidebar_position: 1
 Our latest update introduces the [Universal Inbox](./integrate-inbox/universal-inbox.md) feature, allowing users to receive notifications from multiple applications in a single feed. This brings a more streamlined experience for your users and enables wallet applications to show cross-app notifications.
 :::
 
-**Get your users the notifications they need, when they need them.** Dialect Alerts is a notification infrastructure that powers messaging for over 30 of the most-loved apps and wallets across Solana, EVM, and Aptos.
+**Get your users the notifications they need, when and where they need them.** Dialect Alerts is a notification infrastructure that powers messaging for over 30 of the most-loved apps and wallets across Solana, EVM, and Aptos.
 
 ![Image with alerts delivered via multiple channels](../../static/img/alerts-meet-anywhere.png)
 
@@ -24,7 +24,7 @@ Establish a direct line of communication to your users:
 
 ## Why Dialect Alerts?
 
-**Fast Integration** - Get notifications working in under 10 minutes with our Dashboard, REST API, TypeScript SDK, or pre-built React components. No infrastructure needed.
+**Fast Integration** - Get notifications working in under 15 minutes with our Dashboard, REST API, TypeScript SDK, or pre-built React components. No infrastructure needed.
 
 **Built for Web3** - Wallet-based authentication, multi-chain support, and cross-app notifications that let users see alerts from all their apps in one place.
 
@@ -34,7 +34,7 @@ Establish a direct line of communication to your users:
 
 ### New to Alerts? 
 
-**[Quick Start Guide](./quick-start.md)** - With our Quick Start Guide, you can send your first notification in under 10 minutes. Learn how you can register your app, subscribe to notifications and send a test notification.
+**[Quick Start Guide](./quick-start.md)** - With our Quick Start Guide, you can send your first notification in under 15 minutes. Learn how you can register your app, subscribe to notifications and send a test notification.
 
 ### Want to Send Alerts?
 

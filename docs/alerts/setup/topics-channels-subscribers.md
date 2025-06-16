@@ -126,7 +126,7 @@ Instead of:
 **PUSH** (App Owners Only)
 - **Content**: Text only
 - **Character Limit**: Varies by platform (iOS ~200, Android ~250)
-- **Delivery**: Real-time mobile notifications
+- **Delivery**: Mobile notifications
 - **Restriction**: Only available to app owners for their own users
 - **Best for**: Critical alerts, time-sensitive information
 

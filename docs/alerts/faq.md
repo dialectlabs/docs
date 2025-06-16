@@ -37,7 +37,7 @@ Currently **Solana** and **APTOS** with plans to support EVM. The system is desi
 3. **[Send notifications](./send)** - Integrate sending in your app
 4. **[Add subscription UI](./integrate-inbox/)** - Let users manage preferences
 
-The [Quick Start guide](./quick-start) walks through this in ~10 minutes.
+The [Quick Start guide](./quick-start) walks through this in ~15 minutes.
 
 ### What programming languages do you support?
 
@@ -81,15 +81,6 @@ Test notifications are clearly marked and don't count against quotas.
 **Only app owners** can send push notifications to their own users. Third-party apps must use IN_APP channel, and the app owner decides whether to show these as push notifications.
 
 Example: A DeFi protocol (app owner) can send push notifications directly. A third-party analytics app would send IN_APP notifications, which the protocol's mobile app could display as push notifications.
-
-### How does Telegram integration work?
-
-1. **Create a bot** using [@BotFather](https://t.me/BotFather)
-2. **Get the bot token**
-3. **Add token to your Dialect dashboard**
-4. **Users subscribe** by messaging your bot
-
-Dialect handles all the message routing and delivery.
 
 ## User Experience
 
