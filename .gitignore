@@ -22,3 +22,12 @@ yarn-error.log*
 # Local Netlify folder
 .netlify
 .vercel
+
+
+# OpenAPI docs
+/docs/api/alerts/
+/docs/api/blinks/
+/openapi
+
+# Moved docs
+/docs/alerts/old

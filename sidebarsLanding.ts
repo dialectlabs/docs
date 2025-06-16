@@ -50,22 +50,22 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "link",
-      href: "/alerts/alerts-quick-start",
+      href: "/alerts/quick-start",
       label: "Quick Start",
     },
     {
       type: "link",
-      href: "alerts/alerts-and-monitoring/registering-your-dapp",
+      href: "/alerts/setup/register-app",
       label: "Register your Dapp",
     },
     {
       type: "link",
-      href: "/alerts/alerts-and-monitoring/sdk/typescript/sending-dapp-to-user-messages",
+      href: "/alerts/send/sdk/",
       label: "Send Alerts",
     },
     {
       type: "link",
-      href: "/alerts/alerts-and-monitoring/sdk/typescript/installation",
+      href: "/alerts/send/sdk/",
       label: "TypeScript SDK",
     },
     {

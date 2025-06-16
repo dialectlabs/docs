@@ -1,9 +1,35 @@
-# Alerts & Monitoring
+---
+sidebar_position: 1
+---
 
-This section describes how to set up notifications for your dApp, allowing your user's to subscribe to receive timely notifications from your dApp over the channels they care about—SMS, telegram, email, and Dialect inboxes. Flexible tooling allows dApp developers to configure which channels are available, and which notification types users can subscribe to—be it NFT buyout requests, liquidation warnings, filled orders, DAO proposal updates, new raffle listings, social posts, etc.
+# Introduction
 
-<img src="/img/tensor-hq.png" alt="" />
+Before you can send programmatic alerts to your users, you need to detect when events worth notifying about actually happen. This section covers different strategies for monitoring and detecting events in your application.
 
-Dialect uses its messaging primitives under the hood to power notifications. In the same way that a business manages an email address to send notifications and other messages to its customers, a dApp manages a wallet keypair for performing messaging with the Dialect protocol.
+## Getting Started
 
-The rest of this section will abstract away messaging, and focus on the tools used for configuring notifications, including registering a dApp, deciding how to monitor for on- or off-chain events, configuring both the Dialect protocol and traditional web2 channels for sending notifications, and dropping in React components that let your users manage their notifications from your dapp.
+1. **[Register Your App](../setup/register-app.md)** - Set up your application in Dialect
+2. **[Choose your monitoring approach](#choose-your-path)** - Pick the path that fits your current setup 
+3. **[Send Alerts](../send/)** - Learn how to send notifications using our API, SDK, or Dashboard
+
+## Choose Your Path
+
+### I Need Event Detection
+You don't have event monitoring in place yet and need a complete solution. Dialect provides open-source monitoring tooling (Dialect Monitor) that can detect on-chain and off-chain events automatically. This is ideal when you want a ready-made solution for common blockchain events.
+
+**Best for:** On-chain events, DeFi protocols, NFT marketplaces, standard blockchain monitoring needs, teams without existing monitoring infrastructure.
+
+[Learn how to set up Dialect Monitor →](./setup-event-detection.md)
+
+### I Have Event Detection
+You already have event detection systems in your backend (webhooks, database triggers, custom monitoring, existing alerting systems) and want to integrate Dialect's alert sending directly into your existing workflows using our SDK or API.
+
+**Best for:** Custom business logic, existing backend systems, complex event patterns, off-chain events, teams with established monitoring infrastructure.
+
+[Learn how to integrate with existing systems →](./integrate-existing-system.md)
+
+## What You'll Find Here
+
+- **[Setup Event Detection](./setup-event-detection.md)** - Complete guide to our monitoring tooling
+- **[Integrate Existing System](./integrate-existing-system.md)** - Integrate with your backend
+- Implementation guides and examples
