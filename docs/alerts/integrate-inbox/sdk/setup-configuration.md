@@ -29,9 +29,8 @@ Install the React UI package and blockchain-specific SDK for your needs:
 # React UI components (required)
 npm install @dialectlabs/react-ui
 
-# Blockchain SDKs (choose your blockchain)
-npm install @dialectlabs/react-sdk-blockchain-solana  # For Solana
-npm install @dialectlabs/react-sdk-blockchain-aptos   # For Aptos
+# Blockchain SDK for Solana
+npm install @dialectlabs/react-sdk-blockchain-solana
 ```
 
 </TabItem>
@@ -41,9 +40,8 @@ npm install @dialectlabs/react-sdk-blockchain-aptos   # For Aptos
 # React UI components (required)
 yarn add @dialectlabs/react-ui
 
-# Blockchain SDKs (choose your blockchain)
-yarn add @dialectlabs/react-sdk-blockchain-solana  # For Solana
-yarn add @dialectlabs/react-sdk-blockchain-aptos   # For Aptos
+# Blockchain SDK for Solana
+yarn add @dialectlabs/react-sdk-blockchain-solana
 ```
 
 </TabItem>
@@ -53,9 +51,8 @@ yarn add @dialectlabs/react-sdk-blockchain-aptos   # For Aptos
 # React UI components (required)
 pnpm add @dialectlabs/react-ui
 
-# Blockchain SDKs (choose your blockchain)
-pnpm add @dialectlabs/react-sdk-blockchain-solana  # For Solana
-pnpm add @dialectlabs/react-sdk-blockchain-aptos   # For Aptos
+# Blockchain SDK for Solana
+pnpm add @dialectlabs/react-sdk-blockchain-solana
 ```
 
 </TabItem>

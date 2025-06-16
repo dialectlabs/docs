@@ -26,7 +26,7 @@ No! Dialect uses **wallet-based authentication**. Users connect their Solana wal
 
 ### What chains does Dialect support?
 
-Currently **Solana** and **APTOS** with plans to support EVM. The system is designed to be chain-agnostic.
+Currently **Solana**. The system is designed to be chain-agnostic with plans to support additional chains in the future.
 
 ## Technical Integration
 

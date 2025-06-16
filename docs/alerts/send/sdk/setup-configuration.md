@@ -20,9 +20,8 @@ Install the core SDK and blockchain-specific packages for your needs:
 # Core SDK (required)
 npm install @dialectlabs/sdk
 
-# Blockchain SDKs (choose your blockchain)
-npm install @dialectlabs/blockchain-sdk-solana  # For Solana
-npm install @dialectlabs/blockchain-sdk-aptos   # For Aptos
+# Blockchain SDK for Solana
+npm install @dialectlabs/blockchain-sdk-solana
 ```
 
 </TabItem>
@@ -32,9 +31,8 @@ npm install @dialectlabs/blockchain-sdk-aptos   # For Aptos
 # Core SDK (required)
 yarn add @dialectlabs/sdk
 
-# Blockchain SDKs (choose your blockchain)
-yarn add @dialectlabs/blockchain-sdk-solana  # For Solana
-yarn add @dialectlabs/blockchain-sdk-aptos   # For Aptos
+# Blockchain SDK for Solana
+yarn add @dialectlabs/blockchain-sdk-solana
 ```
 
 </TabItem>
@@ -44,9 +42,8 @@ yarn add @dialectlabs/blockchain-sdk-aptos   # For Aptos
 # Core SDK (required)
 pnpm add @dialectlabs/sdk
 
-# Blockchain SDKs (choose your blockchain)
-pnpm add @dialectlabs/blockchain-sdk-solana  # For Solana
-pnpm add @dialectlabs/blockchain-sdk-aptos   # For Aptos
+# Blockchain SDK for Solana
+pnpm add @dialectlabs/blockchain-sdk-solana
 ```
 
 </TabItem>

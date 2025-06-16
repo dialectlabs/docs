@@ -8,7 +8,7 @@ sidebar_position: 1
 Our latest update introduces the [Universal Inbox](./integrate-inbox/universal-inbox.md) feature, allowing users to receive notifications from multiple applications in a single feed. This brings a more streamlined experience for your users and enables wallet applications to show cross-app notifications.
 :::
 
-**Get your users the notifications they need, when and where they need them.** Dialect Alerts is a notification infrastructure that powers messaging for over 30 of the most-loved apps and wallets across Solana, EVM, and Aptos.
+**Get your users the notifications they need, when and where they need them.** Dialect Alerts is a notification infrastructure that powers messaging for over 30 of the most-loved apps and wallets on Solana.
 
 ![Image with alerts delivered via multiple channels](../../static/img/alerts-meet-anywhere.png)
 
