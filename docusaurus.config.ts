@@ -181,7 +181,7 @@ const config: Config = {
               to: "/api",
             },
             {
-              label: "SBL",
+              label: "Standardized Blinks Library",
               href: "https://sbl.dial.to",
             },
           ],

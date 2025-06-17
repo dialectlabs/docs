@@ -65,8 +65,18 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "link",
-      href: "/alerts/send/sdk/",
-      label: "TypeScript SDK",
+      href: "/alerts/integrate-inbox",
+      label: "Integrate Inbox",
+    },
+    {
+      type: "link",
+      href: "/alerts/integrate-inbox/universal-inbox",
+      label: "Universal Inbox",
+    },
+    {
+      type: "link",
+      href: "/alerts/mobile-alerts",
+      label: "Mobile Alerts Stack",
     },
     {
       type: "link",
