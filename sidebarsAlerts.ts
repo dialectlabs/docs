@@ -112,7 +112,7 @@ const sidebars: SidebarsConfig = {
     {
       type: "doc",
       id: "integrate-inbox/universal-inbox",
-      label: "Universal Inbox",
+      label: "Universal Inbox 📥",
     },
     {
       type: "html",

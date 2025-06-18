@@ -66,12 +66,12 @@ const sidebars: SidebarsConfig = {
     {
       type: "link",
       href: "/alerts/integrate-inbox",
-      label: "Integrate Inbox",
+      label: "Integrate an Inbox",
     },
     {
       type: "link",
       href: "/alerts/integrate-inbox/universal-inbox",
-      label: "Universal Inbox",
+      label: "Universal Inbox 📥",
     },
     {
       type: "link",

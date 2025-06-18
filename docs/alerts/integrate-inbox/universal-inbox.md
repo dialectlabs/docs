@@ -1,4 +1,4 @@
-# Universal Inbox
+# Universal Inbox 📥
 
 The Universal Inbox represents the next evolution of messaging, transforming isolated app notifications into a shared, user-controlled communication layer across the entire ecosystem.
 
