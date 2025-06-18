@@ -34,13 +34,15 @@ const config: Config = {
   ],
 
   plugins: [
-    [
-      "@docusaurus/plugin-google-gtag",
-      {
-        trackingID: "G-0F44EN78QZ",
-        anonymizeIP: true,
-      },
-    ],
+    ...(process.env.NODE_ENV === 'production' ? [
+      [
+        "@docusaurus/plugin-google-gtag",
+        {
+          trackingID: "G-0F44EN78QZ",
+          anonymizeIP: true,
+        },
+      ]
+    ] : []),
     [
       "@docusaurus/plugin-content-docs",
       {

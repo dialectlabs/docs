@@ -10,7 +10,7 @@ Blockchain Links, aka Blinks, are the fastest way to take onchain experiences an
 
 [Get started with Blinks!](../blinks)
 
-<img src="/img/hero-banner (1).png" alt="" />
+![Blinks in various environments](../../static/img/blinks-landing.png)
  
 ## Alerts
 
@@ -18,4 +18,4 @@ Dialect Alerts allow you to send on-chain events via multiple channels directly 
 
 [Send alerts to your users in less than 15 minutes!](../alerts/)
 
-<img src="/img/blog post-Web3 Needs an Alerts Stack.png" alt="" />
+![Alerts in various environments](../../static/img/alerts-landing.png)

@@ -261,7 +261,7 @@ Go back to your app and:
 
 ## Customization
 
-Want to customize the look and feel of your notification bell? Check out our **[Advanced React Notifications](./alerts-and-monitoring/advanced-react-notifications.md)** guide where you can see how companies like Tensor have customized the notification widget to match their brand.
+Want to customize the look and feel of your notification bell? Check out our **[Event Detection and Monitoring](./alerts-and-monitoring/index.md)** guide where you can see how companies like Tensor have customized the notification widget to match their brand.
 
 You'll find detailed styling options including:
 - Custom colors and themes

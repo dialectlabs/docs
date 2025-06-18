@@ -14,7 +14,7 @@ Any client that has blinks integrated into their application can point to a bloc
 
 By building with blinks, you ensure that developers can integrate your service in seconds while you still own the blink. Since you maintain full control of the blink from a single location, any updates you make are automatically reflected wherever your blink is served, eliminating the need for third parties to update their SDKs.
 
-<figure><img src="/img/hero-banner (1).png" alt="" /><figcaption></figcaption></figure>
+![Blinks in various environments](../../static/img/blinks-landing.png)
 
 The ecosystem's most innovative teams are already building with Blinks, creating powerful new ways to interact with blockchain technology. This widespread adoption opens up exciting possibilities for both developers and users.
 
