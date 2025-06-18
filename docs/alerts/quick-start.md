@@ -82,30 +82,34 @@ Fill out your app information:
 
 Click **"Register"** and wait for the ✅ confirmation.
 
-### Save Your app Address
+### Save Your App Address
 
 **Important**: Copy your app address from the bottom-left corner (click "Copy Address"). This should match the public key of the wallet you just created.
 
 ```bash
 # This is your app's public key - save it!
-app_ADDRESS=5XCdQVqopjAoVkNhkXWHmeHNhRS5bPiATUULy8FHDySX
+dappAddress=5XCdQVqopjAoVkNhkXWHmeHNhRS5bPiATUULy8FHDySX
 ```
 
 **Note**: This address will be used to initialize the Dialect SDK in your React component (Step 3).
 
 ## Step 2: Set Up Your Project (3 minutes)
 
+:::tip Already have a project?
+If you already have an existing React/Next.js project, you can skip this step and jump directly to [Step 3: Add Notification Bell](#step-3-add-notification-bell-4-minutes). The notification bell works with any React application.
+:::
+
 ### Clone the Scaffold
 
-We'll start with a fresh project using the Solana scaffold:
+We'll start with a fresh project using the Solana app scaffold:
 
 ```bash
-# Clone the scaffold
-npx create-blinks-app
+# Create a new Solana dApp scaffold
+npx create-solana-dapp@latest alerts-tutorial
 
-# Choose your framework when prompted:
-# - Blockchain: Solana
-# - Project name: alerts-tutorial (or choose your preferred name)
+# Choose your options when prompted:
+# - Framework: Next.js (A React framework by Vercel)
+# - Template: gill-next-tailwind (Next.js, Tailwind, gill based on @solana/kit, Wallet UI)
 
 # Navigate to the project
 cd alerts-tutorial
@@ -140,9 +144,9 @@ yarn add @dialectlabs/react-ui @dialectlabs/react-sdk-blockchain-solana
 
 ### Create Notification Component
 
-Create a new file `src/app/components/dialect/DialectNotificationComponent.tsx`:
+Create a new file `src/components/DialectNotificationComponent.tsx`:
 
-```tsx title="src/app/components/dialect/DialectNotificationComponent.tsx"
+```tsx title="src/components/DialectNotificationComponent.tsx"
 "use client";
 
 import "@dialectlabs/react-ui/index.css";
@@ -150,12 +154,12 @@ import { DialectSolanaSdk } from "@dialectlabs/react-sdk-blockchain-solana";
 import { NotificationsButton } from "@dialectlabs/react-ui";
 
 // Replace with your actual app address from Step 1
-const app_ADDRESS = "5XCdQVqopjAoVkNhkXWHmeHNhRS5bPiATUULy8FHDySX";
+const dappAddress = "5XCdQVqopjAoVkNhkXWHmeHNhRS5bPiATUULy8FHDySX";
 
 export const DialectNotificationComponent = () => {
   return (
     <DialectSolanaSdk
-      appAddress={app_ADDRESS}
+      dappAddress={dappAddress}
       config={{
         environment: "production",
       }}
@@ -166,56 +170,34 @@ export const DialectNotificationComponent = () => {
 };
 ```
 
-### Add to Your Navbar
+### Add to Your App Header
 
-Add the notification bell to your app's navbar. 
+Add the notification bell to your app's header next to the wallet button.
 
-```tsx title="src/app/components/navbar.tsx"
+Find the header file `src/components/app-header.tsx` and add the notification component:
+
+```tsx title="src/components/app-header.tsx"
 // Add this import at the top with the other imports
 // highlight-start
-import { DialectNotificationComponent } from "@/app/components/dialect/DialectNotificationComponent";
+import { DialectNotificationComponent } from "@/components/DialectNotificationComponent";
 // highlight-end
 
-// In the Desktop Navigation section, add the component before WalletMultiButton:
+// Find the section with the wallet and other buttons, then add the component:
 <div className="hidden md:flex items-center gap-4">
-  <div className="flex items-center gap-3">
-    {navBarLinks.map((link) => (
-      <MenuButton
-        key={link.text}
-        logoName={link.logoName}
-        text={link.text}
-        href={link.href}
-      />
-    ))}
-  </div>
   // highlight-start
   <DialectNotificationComponent />
   // highlight-end
-  <WalletMultiButton />
+  <WalletButton />
+  <ClusterButton />
+  <ThemeSelect />
 </div>
-
-// In the Mobile Navigation section, add it next to the burger menu:
-<button
-  className="md:hidden p-2 flex items-center gap-2"
-  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-  aria-label="Toggle menu"
->
-  // highlight-start
-  <DialectNotificationComponent />
-  // highlight-end
-
-  <div className="w-6 h-6 flex flex-col justify-center">
-    <span className={`block w-full h-0.5 bg-white mb-1 transition-transform ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-    <span className={`block w-full h-0.5 bg-white mb-1 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
-    <span className={`block w-full h-0.5 bg-white transition-transform ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
-  </div>
-</button>
 ```
 
 ### Test the Component
-![Notification Component in Blinks Scaffold](../../static/img/alert-bell-saffold.png)
 
-Refresh your browser and you should see the notification bell next to your wallet button in the navbar.
+![Screenshot highlighting Alert Bell icon in Navigation Bar incl. Modal](../../static/img/alert-bell-saffold.png)
+
+Refresh your browser and you should see the notification bell next to your wallet button and cluster selector in the top navigation.
 
 ## Step 4: User Subscribes to Notifications (2 minutes)
 
@@ -227,8 +209,9 @@ In the next step, your users need to opt-in into notifications:
 
 1. **Connect Wallet**: User connects their wallet to your app
 2. **Click Bell**: User clicks the notification bell
-3. **Sign message**: User signs a message to proof ownership
-4. **Choose additional Channels**: 
+3. **Set Up Notifications**: Click "Set up notifications" 
+4. **Enable Notifications**: Make sure the toggle is "ON" (very important!)
+5. **Choose Additional Channels**: 
    - 📧 **Email**: User can optionally add their email
    - 📱 **Telegram**: User can optionally add their Telegram handle
 
@@ -263,7 +246,7 @@ Go back to your app and:
 
 ### ❌ "No subscribers found"
 - Make sure the user clicked the bell and enabled notifications
-- Check that the toggle is "ON" in the notification settings
+- **Very important**: Check that the toggle is "ON" in the notification settings (sometimes it defaults to "OFF")
 
 ### ❌ "Component not rendering"
 - Ensure you imported the CSS: `import "@dialectlabs/react-ui/index.css"`
@@ -275,6 +258,15 @@ Go back to your app and:
 - Check dashboard analytics to see delivery status
 - Verify the target wallet address is correct
 
+
+## Customization
+
+Want to customize the look and feel of your notification bell? Check out our **[Advanced React Notifications](./alerts-and-monitoring/advanced-react-notifications.md)** guide where you can see how companies like Tensor have customized the notification widget to match their brand.
+
+You'll find detailed styling options including:
+- Custom colors and themes
+- Component styling with CSS
+- Complete customization examples
 
 ## Learn More
 
