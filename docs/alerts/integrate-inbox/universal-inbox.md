@@ -14,28 +14,26 @@ The Universal Inbox builds directly on Dialect's existing notification infrastru
 
 ```mermaid
 graph TB
-    User[👤 User] --> Inbox[📥 Universal Inbox]
-    
     subgraph "Subscribed Apps"
-        App1[🏦 Drift<br/>Trading Alerts]
+        App1[🚀 Jito<br/>MEV Rewards]
         App2[🐕 Bonk<br/>Community Updates] 
         App3[⚡ Sanctum<br/>Staking Rewards]
         App4[📊 Your App<br/>Custom Notifications]
     end
     
-    App1 --> Inbox
+    App1 --> Inbox[📥 Universal Inbox]
     App2 --> Inbox
     App3 --> Inbox
     App4 --> Inbox
     
-    Inbox --> Channels[📱 Push, 📧 Email, 🔔 In-App]
+    Inbox --> User[👤 User]
 ```
 
 ### Core Concepts
 
 **Cross-App Subscriptions**: Users can subscribe to notifications from any registered Dialect app, not just the one they're currently using. A user in your DeFi app could also receive liquidation alerts from Drift and governance updates from their favorite DAO.
 
-**User-Controlled**: Users have complete control over which apps they want to hear from and through which channels (push, email, in-app). They can subscribe to Bonk community updates via push notifications while receiving Sanctum staking rewards only in-app.
+**User-Controlled**: Users have complete control over which apps they want to hear from and through which channels (push, email, in-app). 
 
 **Shared Infrastructure**: All apps use the same Dialect messaging infrastructure, making cross-app communication seamless. The same APIs that power your app's notifications can deliver messages from any other registered app.
 
@@ -68,7 +66,7 @@ For implementation details, see the [Notifications](./api/notifications.md) docu
 Messages from all subscribed apps are delivered through the user's preferred channels:
 
 - **Push Notifications**: Mobile alerts from any subscribed app
-- **Email**: Digest emails with updates from multiple apps  
+- **Email**: Emails from any subscribed app 
 - **In-App**: Unified notification feed within your application
 
 For implementation details, see the [Push Notifications](./api/push-notifications.md) documentation.
