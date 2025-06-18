@@ -101,9 +101,9 @@ Build UI that allows users to:
 - Subscribe/unsubscribe from apps they're interested in
 - Manage notification preferences per app
 
-### 4. Unified Feed Display
-Create a notification feed that shows messages from all subscribed apps:
-- Use `/v2/history` to fetch the unified message stream
+### 4. Unified Inbox Display
+Create a notification inbox that shows messages from all subscribed apps:
+- Use `/v2/history` to fetch a unified message stream
 - Display app branding/icons to show message sources
 - Implement filtering options (by app, by type, etc.)
 
@@ -112,15 +112,6 @@ Consider implementing actions that work across apps:
 - "Subscribe to similar apps" recommendations
 - Cross-app notification batching
 - Unified notification settings
-
-## Real-World Examples
-
-**DeFi Power User**: A trader subscribed to Drift (liquidation alerts), Jupiter (swap confirmations), and Sanctum (staking rewards) sees all updates in one feed while trading on any platform.
-
-**Community Member**: A Solana enthusiast subscribed to Bonk (community updates), Magic Eden (NFT drops), and Dialect (platform updates) gets a comprehensive view of ecosystem activity.
-
-**Portfolio Manager**: An investor subscribed to multiple yield farming protocols gets consolidated alerts about position changes, rewards, and opportunities across their entire portfolio.
-
 
 ## Getting Started
 
